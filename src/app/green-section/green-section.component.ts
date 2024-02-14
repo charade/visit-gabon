@@ -16,17 +16,17 @@ export class GreenSectionComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const svgElement = document.querySelector('.clipGreenVideo') as SVGAElement;
 
-    svgElement.addEventListener('mouseenter', (e) =>
+    svgElement.addEventListener('pointerenter', (e) =>
       gsap.to('.cursor-mask', {
-        y: -30,
-        x: -12,
-        scale: 3.2,
+        y: -50,
+        x: -14,
+        scale: 4,
         ease: 'sin.inOut',
         duration: 0.5,
       })
     );
 
-    svgElement.addEventListener('mouseleave', () =>
+    svgElement.addEventListener('pointerleave', () =>
       gsap.to('.cursor-mask', {
         scale: 1,
         y: 0,
@@ -35,5 +35,24 @@ export class GreenSectionComponent implements AfterViewInit {
         duration: 0.8,
       })
     );
+
+    this.animationTimeline.add(this.#enteringGreenSectionContentAnimation());
+  }
+
+  #enteringGreenSectionContentAnimation(): gsap.core.Timeline {
+    return gsap
+      .timeline({
+        ease: 'sine',
+        scrollTrigger: {
+          trigger: 'section.green-section',
+          start: 'top 99%',
+          end: 'top 99%',
+          scrub: 1.2,
+        },
+      })
+      .to('.cursor-mask', {
+        opacity: 0,
+      })
+      .from('.green-section-content', { opacity: 0, xPercent: -100 });
   }
 }

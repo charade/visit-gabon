@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { EntryComponent } from './entry/entry.component';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { EntryComponent } from './entry/entry.component';
 import { GreenSectionComponent } from './green-section/green-section.component';
 
 @Component({
@@ -12,7 +14,15 @@ import { GreenSectionComponent } from './green-section/green-section.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'visit-gabon';
   mainAnimationTimeline = gsap.timeline();
+
+  constructor() {
+    gsap.registerPlugin(ScrollTrigger);
+  }
+
+  ngAfterViewInit(): void {
+    const cursorTracker = document.querySelector('.cursor-tracker');
+  }
 }

@@ -1,20 +1,22 @@
+@import "../../styles/mixins.scss";
+
 :host {
-  height: 100%;
   display: block;
+  height: 100vh;
 
   .green-section-container {
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
+    // z-index: 3;
 
     & > * {
       width: 100%;
     }
 
-    .video-container {
+    .high-hp-video-container {
       height: 35rem;
-      // margin: 1rem 0;
 
       video {
         width: 100%;
@@ -49,7 +51,7 @@
       }
     }
 
-    .catch-phares-container {
+    .green-catch-phrases-container {
       margin: 1rem 0;
       display: flex;
       flex-direction: column;
@@ -74,17 +76,48 @@
         font-size: 1.25rem;
         font-family: RobotoRegular;
         height: 0.25rem;
-        color: #171616c3;
+        color: #0e5d33e3;
 
         &:first-child {
           margin-top: 2rem;
         }
 
         &:last-child {
-          color: #0e5d33e3;
           margin-top: 3rem;
           font-family: "LoversQuarrel";
           font-size: 3.5rem;
+        }
+      }
+    }
+
+    .green-section-content {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: #9dbc98;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+
+      .low-video-container {
+        @include flexCentered;
+        width: 28rem;
+        height: 28rem;
+        border: none;
+        border-radius: 50%;
+        margin: 4rem 0;
+        align-self: center;
+        box-shadow: 5px -5px 12px#00000078, -4px 5px 15px #000000d7,
+          0 20px 20px #eeebeb78;
+
+        .low-video-content {
+          @include flexCentered;
+          width: 25rem;
+          height: 25rem;
+          border: none;
+          border-radius: 50%;
+          overflow: hidden;
         }
       }
     }

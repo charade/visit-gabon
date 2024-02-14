@@ -1,7 +1,7 @@
 <div class="green-section-container">
-  <div class="video-container">
+  <div class="high-hp-video-container">
     <video autoplay playsinline [muted]="true" loop preload>
-      <source src="/assets/videos/gabon_green.mp4" />
+      <source src="/assets/videos/gabon_green_high.mp4" />
     </video>
   </div>
   <svg
@@ -13,17 +13,27 @@
       <mask id="green-section-mask" x="0" y="0" width="100%" height="100%">
         <rect x="0" y="0" x="0" y="0" width="100%" height="100%" />
         <text class="green-catch-phrase" x="105" y="285">Voyez</text>
-        <text x="120" y="327">Vert</text>
+        <text class="green-catch-phrase" x="120" y="327">Vert</text>
         <circle class="cursor-mask" cx="60.1%" cy="52.8%" r="10" />
       </mask>
     </defs>
 
     <rect x="0" y="0" width="100%" height="100%" />
   </svg>
-  <div class="catch-phares-container">
+  <div class="green-catch-phrases-container">
     <h1>« Rester, c'est exister. Voyager, c'est vivre »</h1>
     <h4>( Gustave Nadaud )</h4>
     <h6>Maintenant, vous pouvez expirer ,</h6>
     <h6>nous sommes carbone positif !</h6>
+  </div>
+
+  <div class="green-section-content">
+    <div class="low-video-container">
+      <div class="low-video-content">
+        <video autoplay playsinline [muted]="true" loop preload>
+          <source src="/assets/videos/gabon_green.mp4" />
+        </video>
+      </div>
+    </div>
   </div>
 </div>
