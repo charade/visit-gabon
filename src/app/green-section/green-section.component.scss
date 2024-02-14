@@ -15,7 +15,7 @@
       width: 100%;
     }
 
-    .high-hp-video-container {
+    .high-video-container {
       height: 35rem;
 
       video {
@@ -94,7 +94,7 @@
       position: fixed;
       width: 100vw;
       height: 100vh;
-      background-color: #9dbc98;
+      background-color: #748871;
       bottom: 0;
       left: 0;
       display: flex;
@@ -102,14 +102,14 @@
 
       .low-video-container {
         @include flexCentered;
-        width: 28rem;
-        height: 28rem;
+        width: 26rem;
+        height: 26rem;
         border: none;
         border-radius: 50%;
-        margin: 4rem 0;
+        margin: 3rem 0;
         align-self: center;
         box-shadow: 5px -5px 12px#00000078, -4px 5px 15px #000000d7,
-          0 20px 20px #eeebeb78;
+          5px 20px 20px #eeebeb78;
 
         .low-video-content {
           @include flexCentered;
@@ -118,6 +118,49 @@
           border: none;
           border-radius: 50%;
           overflow: hidden;
+        }
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-family: "KhandLight";
+        margin: 1rem 0;
+        // color: #d9d7d7;
+      }
+
+      h3 {
+        font-size: 5rem;
+        text-align: center;
+        font-family: "LoversQuarrel";
+        font-weight: 300;
+        color: #d6d1d1;
+        height: 5rem;
+      }
+
+      .green-species-description {
+        display: flex;
+        flex-direction: column;
+        // width: 85%;
+        align-self: center;
+        // margin: 1rem 0;
+        div {
+          display: flex;
+          align-items: center;
+          border-left: 3px solid #ffffff97;
+          padding-left: 2rem;
+          margin: 0.5rem 0;
+          height: 2.5rem;
+          overflow: hidden;
+
+          h3 {
+            font-size: 1.8rem;
+            // font-weight: 600;
+            // color: #e7dede;
+            color: #272727;
+            font-family: "KhandRegular";
+            height: 100%;
+          }
         }
       }
     }
