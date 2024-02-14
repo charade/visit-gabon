@@ -40,6 +40,3 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-
-#large file
-src/assets/videos/gabon_blue.mp4
