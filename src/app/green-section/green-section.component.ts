@@ -17,9 +17,9 @@ export class GreenSectionComponent implements AfterViewInit {
 
     svgElement.addEventListener('pointerenter', (e) =>
       gsap.to('.cursor-mask', {
-        y: -50,
-        x: -14,
-        scale: 4,
+        y: -37,
+        x: -23,
+        scale: 2.6,
         ease: 'sin.inOut',
         duration: 0.5,
       })
@@ -43,10 +43,6 @@ export class GreenSectionComponent implements AfterViewInit {
   }
 
   #enteringGreenSectionIntroContentAnimation(): gsap.core.Timeline {
-    const greenSpeciesTextContent = document.querySelectorAll(
-      '.green-species-description-content > h3'
-    );
-
     return gsap
       .timeline({
         ease: 'sine',
@@ -60,8 +56,7 @@ export class GreenSectionComponent implements AfterViewInit {
       .to('.cursor-mask', {
         opacity: 0,
       })
-
-      .from('.green-section-content', {
+      .from('.green-section-contents-container', {
         opacity: 0,
         xPercent: -150,
         duration: 4,
@@ -95,19 +90,29 @@ export class GreenSectionComponent implements AfterViewInit {
         scrollTrigger: {
           trigger: 'section.green-section-intro',
           start: 'top center',
-          end: 'top 45%',
+          end: 'top 38%',
           scrub: 4,
         },
       })
       .to('.low-video-container', {
         scale: 0.3,
         opacity: 0,
-        duration: 1.3,
+        duration: 1,
       })
       .to('.green-section-intro-content > *', {
         x: 100,
         opacity: 0,
         stagger: 0.3,
-      });
+      })
+      .to(
+        '.green-section-contents',
+        { backgroundColor: '#fff' }
+        // 'enter-green-section-second-content'
+      )
+      .from(
+        '.green-section-second-content-bg',
+        { opacity: 0, scale: 0.6 }
+        // 'enter-green-section-second-content += 2'
+      );
   }
 }
