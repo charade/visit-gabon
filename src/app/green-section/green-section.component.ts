@@ -90,7 +90,7 @@ export class GreenSectionComponent implements AfterViewInit {
         scrollTrigger: {
           trigger: 'section.green-section-intro',
           start: 'top center',
-          end: 'top 38%',
+          end: 'top 43%',
           scrub: 4,
         },
       })
@@ -104,15 +104,7 @@ export class GreenSectionComponent implements AfterViewInit {
         opacity: 0,
         stagger: 0.3,
       })
-      .to(
-        '.green-section-contents',
-        { backgroundColor: '#fff' }
-        // 'enter-green-section-second-content'
-      )
-      .from(
-        '.green-section-second-content-bg',
-        { opacity: 0, scale: 0.6 }
-        // 'enter-green-section-second-content += 2'
-      );
+      .to('.green-section-contents', { backgroundColor: '#fff' })
+      .from('.green-section-second-content', { opacity: 0, scale: 0.6 });
   }
 }
