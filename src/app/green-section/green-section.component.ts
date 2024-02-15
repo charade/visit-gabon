@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
-import SplitType from 'split-type';
 
 @Component({
   selector: 'app-green-section',
@@ -36,10 +35,14 @@ export class GreenSectionComponent implements AfterViewInit {
       })
     );
 
-    this.animationTimeline.add(this.#enteringGreenSectionContentAnimation());
+    this.animationTimeline.add(
+      this.#enteringGreenSectionIntroContentAnimation()
+    );
+
+    this.animationTimeline.add(this.#exitGreenSectionIntroContentAnimation());
   }
 
-  #enteringGreenSectionContentAnimation(): gsap.core.Timeline {
+  #enteringGreenSectionIntroContentAnimation(): gsap.core.Timeline {
     const greenSpeciesTextContent = document.querySelectorAll(
       '.green-species-description-content > h3'
     );
@@ -48,20 +51,30 @@ export class GreenSectionComponent implements AfterViewInit {
       .timeline({
         ease: 'sine',
         scrollTrigger: {
-          trigger: 'section.green-section',
+          trigger: 'section.green-section-intro',
           start: 'top 99%',
-          end: 'top 90%',
-          scrub: 4,
+          end: 'top 98%',
+          scrub: 3,
         },
       })
       .to('.cursor-mask', {
         opacity: 0,
       })
+
       .from('.green-section-content', {
         opacity: 0,
         xPercent: -150,
-        duration: 5,
+        duration: 4,
       })
+      .to(
+        '.low-video-container',
+        {
+          // reset the hublot video on returning to intro content
+          scale: 1,
+          opacity: 1,
+        },
+        '-=0.5'
+      )
       .from('.green-species-description-content', {
         opacity: 0,
         height: 0,
@@ -69,10 +82,32 @@ export class GreenSectionComponent implements AfterViewInit {
       })
       .from('.green-species-description-content > h3', {
         transformOrigin: 'top right',
-        rotateZ: '-45deg',
+        rotateZ: '-30deg',
         y: 20,
         opacity: 0,
-        stagger: 0.4,
+        stagger: 0.3,
+      });
+  }
+
+  #exitGreenSectionIntroContentAnimation(): gsap.core.Timeline {
+    return gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: 'section.green-section-intro',
+          start: 'top center',
+          end: 'top 45%',
+          scrub: 4,
+        },
+      })
+      .to('.low-video-container', {
+        scale: 0.3,
+        opacity: 0,
+        duration: 1.3,
+      })
+      .to('.green-section-intro-content > *', {
+        x: 100,
+        opacity: 0,
+        stagger: 0.3,
       });
   }
 }
