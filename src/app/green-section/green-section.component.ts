@@ -12,14 +12,16 @@ import gsap from 'gsap';
 export class GreenSectionComponent implements AfterViewInit {
   @Input() animationTimeline: gsap.core.Timeline;
 
+  #greenSectionSecondContentBgCinematic = 'cinematic';
+
   ngAfterViewInit(): void {
     const svgElement = document.querySelector('.clipGreenVideo') as SVGAElement;
 
     svgElement.addEventListener('pointerenter', (e) =>
       gsap.to('.cursor-mask', {
-        y: -37,
-        x: -23,
-        scale: 2.6,
+        y: -31,
+        x: -20,
+        scale: 2.5,
         ease: 'sin.inOut',
         duration: 0.5,
       })
@@ -40,6 +42,7 @@ export class GreenSectionComponent implements AfterViewInit {
     );
 
     this.animationTimeline.add(this.#exitGreenSectionIntroContentAnimation());
+    this.animationTimeline.add(this.#enteringGreenSectionSecondContent());
   }
 
   #enteringGreenSectionIntroContentAnimation(): gsap.core.Timeline {
@@ -61,15 +64,11 @@ export class GreenSectionComponent implements AfterViewInit {
         xPercent: -150,
         duration: 4,
       })
-      .to(
-        '.low-video-container',
-        {
-          // reset the hublot video on returning to intro content
-          scale: 1,
-          opacity: 1,
-        },
-        '-=0.5'
-      )
+      .to('.low-video-container', {
+        // reset the hublot video on returning to intro content
+        scale: 1,
+        opacity: 1,
+      })
       .from('.green-species-description-content', {
         opacity: 0,
         height: 0,
@@ -90,21 +89,62 @@ export class GreenSectionComponent implements AfterViewInit {
         scrollTrigger: {
           trigger: 'section.green-section-intro',
           start: 'top center',
-          end: 'top 43%',
+          end: 'top 40%',
           scrub: 4,
         },
       })
       .to('.low-video-container', {
         scale: 0.3,
         opacity: 0,
-        duration: 1,
+        duration: 2,
       })
       .to('.green-section-intro-content > *', {
         x: 100,
         opacity: 0,
         stagger: 0.3,
       })
-      .to('.green-section-contents', { backgroundColor: '#fff' })
-      .from('.green-section-second-content', { opacity: 0, scale: 0.6 });
+      .to('.green-section-contents', {
+        backgroundColor: 'rgb(173, 189, 175)',
+        duration: 2,
+      })
+      .from(
+        '.green-section-second-content',
+        {
+          opacity: 0,
+          scale: 2.5,
+          ease: 'sine',
+        },
+        this.#greenSectionSecondContentBgCinematic
+      );
+  }
+
+  #enteringGreenSectionSecondContent(): gsap.core.Timeline {
+    return gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: 'section.green-section-intro',
+          start: 'top 46%',
+          end: 'top 45%',
+          scrub: 4,
+        },
+      })
+      .from('.green-section-second-content-catch-phrase', { width: 0 })
+      .from(
+        '.green-section-second-content-catch-phrase > h2',
+        {
+          y: 20,
+          opacity: 0,
+          // delay: 2.4,
+        },
+        this.#greenSectionSecondContentBgCinematic + '+=50'
+      )
+      .from(
+        '.green-section-second-content-description > p',
+        {
+          y: -40,
+          opacity: 0,
+        },
+        this.#greenSectionSecondContentBgCinematic + '+=50'
+      );
   }
 }
