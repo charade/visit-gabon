@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
+import { MediaBreakPointsObserver } from '../breakpoint-observer';
 
 @Component({
   selector: 'app-green-section',
@@ -9,7 +10,10 @@ import gsap from 'gsap';
   templateUrl: './green-section.component.html',
   styleUrls: ['./green-section.component.scss'],
 })
-export class GreenSectionComponent implements AfterViewInit {
+export class GreenSectionComponent
+  extends MediaBreakPointsObserver
+  implements AfterViewInit
+{
   @Input() animationTimeline: gsap.core.Timeline;
 
   #greenSectionSecondContentBgCinematic = 'cinematic';
@@ -105,17 +109,19 @@ export class GreenSectionComponent implements AfterViewInit {
       })
       .to('.green-section-contents', {
         backgroundColor: 'rgb(173, 189, 175)',
-        duration: 2,
+        duration: 1,
       })
       .from(
         '.green-section-second-content',
         {
           opacity: 0,
-          scale: 2.5,
-          ease: 'sine',
         },
         this.#greenSectionSecondContentBgCinematic
-      );
+      )
+      .from('.green-section-second-content-bg', {
+        filter: 'grayscale(0)',
+        scale: 0.8,
+      });
   }
 
   #enteringGreenSectionSecondContent(): gsap.core.Timeline {
@@ -123,20 +129,24 @@ export class GreenSectionComponent implements AfterViewInit {
       .timeline({
         scrollTrigger: {
           trigger: 'section.green-section-intro',
-          start: 'top 46%',
-          end: 'top 45%',
+          start: 'top 40%',
+          end: 'top 40%',
           scrub: 4,
         },
       })
-      .from('.green-section-second-content-catch-phrase', { width: 0 })
+
       .from(
-        '.green-section-second-content-catch-phrase > h2',
+        '.separator.first',
+        { width: 0 },
+        this.#greenSectionSecondContentBgCinematic + '+=52'
+      )
+      .from(
+        '.green-section-second-content-catch-phrase',
         {
           y: 20,
           opacity: 0,
-          // delay: 2.4,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=50'
+        this.#greenSectionSecondContentBgCinematic + '+=53'
       )
       .from(
         '.green-section-second-content-description > p',
@@ -144,7 +154,25 @@ export class GreenSectionComponent implements AfterViewInit {
           y: -40,
           opacity: 0,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=50'
+        this.#greenSectionSecondContentBgCinematic + '+=53'
+      )
+      .from(
+        '.green-section-second-content-explore',
+        {
+          clipPath: 'polygon(0 0, 100% 100%, 100% 100%, 0 100%)',
+          ease: 'sine',
+          duration: 5,
+        },
+        this.#greenSectionSecondContentBgCinematic + '+=60'
+      )
+      .from(
+        '.green-section-second-content-img-explore',
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.3,
+        }
+        // this.#greenSectionSecondContentBgCinematic + '+=62'
       );
   }
 }

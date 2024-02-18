@@ -1,27 +1,40 @@
 <div class="green-section-container">
-  <div class="high-video-container">
-    <video autoplay playsinline [muted]="true" loop preload>
-      <source src="/assets/videos/gabon_green.mp4" />
-    </video>
-  </div>
-  <svg
-    class="clipGreenVideo"
-    viewBox="0 0 400 600"
-    preserveAspectRatio="xMaxYMid slice"
-  >
-    <defs>
-      <mask id="green-section-mask" x="0" y="0" width="100%" height="100%">
-        <rect x="0" y="0" x="0" y="0" width="100%" height="100%" />
-        <text x="123" y="295">Voyez</text>
-        <text x="133" y="335">Vert</text>
-        <circle class="cursor-mask" cx="64.1%" cy="54.1%" r="10" />
-      </mask>
-    </defs>
+  <div class="clipped-hight-videos-container">
+    <div class="high-video">
+      <video autoplay playsinline [muted]="true" loop preload>
+        <source src="/assets/videos/gabon_green.mp4" />
+      </video>
+    </div>
+    <svg
+      class="clipGreenVideo"
+      viewBox="0 0 400 600"
+      preserveAspectRatio="xMaxYMid slice"
+    >
+      <defs>
+        <mask id="green-section-mask" x="0" y="0" width="100%" height="100%">
+          <rect x="0" y="0" x="0" y="0" width="100%" height="100%" />
+          <text x="123" y="295">Voyez</text>
+          <text x="133" y="335">Vert</text>
+          <circle class="cursor-mask" cx="64.3%" cy="54.1%" r="10" />
+        </mask>
+      </defs>
 
-    <rect x="0" y="0" width="100%" height="100%" />
-  </svg>
-  <div class="green-catch-phrases-container">
-    <h1 class="green-catch-phrase">
+      <rect x="0" y="0" width="100%" height="100%" />
+    </svg>
+  </div>
+  <div
+    class="green-catch-phrases-container"
+    [ngClass]="{
+      'xs-device': isDeviceXS(),
+      's-device': isDeviceS(),
+      'l-device': isDeviceL(),
+      'xl-device': isDeviceXL()
+    }"
+  >
+    <h1
+      class="green-catch-phrase"
+      [ngClass]="{ 'xs-device': isDeviceXS(), 'm-device': isDeviceM() }"
+    >
       «Rester, c'est exister. Voyager, c'est vivre»
     </h1>
     <h4>( Gustave Nadaud )</h4>
@@ -60,16 +73,65 @@
       </div>
 
       <div class="green-section-second-content">
-        <div class="green-section-second-content-catch-phrase">
-          <h2>Naturellement unique</h2>
-        </div>
+        <img
+          class="green-section-second-content-bg"
+          src="/assets/pics/plateaux-bateke.jpg"
+          alt="plateaux_bateke"
+        />
+        <h2 class="green-section-second-content-catch-phrase">
+          Naturellement unique
+        </h2>
+        <div class="separator first"></div>
         <div class="green-section-second-content-description">
-          <p>
-            Découvrez des trésors naturels, les chutes de Koungou, de Djidji et
-            d’Iboundji, les paysages spectaculaires de la Lopé, de Wonga Wongué
-            et des Plateaux Batéké, les sommets des Monts de Cristal et du
-            Massif du Chaillu...
+          <p [ngClass]="{ 's-device': isDeviceS() }">
+            Découvrez la beauté des chutes de Kongou, de Djidji et d’Iboundji,
+            les paysages spectaculaires de la Lopé, de Wonga Wongué et des
+            Plateaux Batéké, les sommets des Monts de Cristal et du Massif du
+            Chaillu...<br />
+            Découvrez le tout simplement sublime
           </p>
+        </div>
+
+        <div
+          class="green-section-second-content-explore"
+          [ngClass]="{
+            'xs-device': isDeviceXS(),
+            's-device': isDeviceS(),
+            'sm-device': isDeviceSm(),
+            'm-device': isDeviceM(),
+            'l-device': isDeviceL(),
+            'xl-device': isDeviceXL()
+          }"
+        >
+          <div
+            class="green-section-second-content-explore-content"
+            [ngClass]="{ 'xl-device': isDeviceXL() }"
+          >
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/chutes-de-kongou.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/nyonie.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-de-loango.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-des-plateaux-bateke.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-lope.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-mayumba.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-minkebe.jpg" alt="" />
+            </div>
+            <div class="green-section-second-content-img-explore">
+              <img src="/assets/pics/parc-pongara.jpg" alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
