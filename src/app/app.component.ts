@@ -6,11 +6,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { EntryComponent } from './components/entry/entry.component';
 import { GreenSectionComponent } from './components/green-section/green-section.component';
+import { YellowSectionComponent } from './components/yellow-section/yellow-section.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, EntryComponent, GreenSectionComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    EntryComponent,
+    GreenSectionComponent,
+    YellowSectionComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

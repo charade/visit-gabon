@@ -5,7 +5,7 @@ import { MediaBreakPointsObserver } from '../../utils/breakpoint-observer';
 import { UserAgent } from '../../utils/user-agent';
 
 @Component({
-  selector: 'app-green-section',
+  selector: 'green-section',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './green-section.component.html',
