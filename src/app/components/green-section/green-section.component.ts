@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
-import { MediaBreakPointsObserver } from '../utils/breakpoint-observer';
-import { UserAgent } from '../utils/user-agent';
+import { MediaBreakPointsObserver } from '../../utils/breakpoint-observer';
+import { UserAgent } from '../../utils/user-agent';
 
 @Component({
   selector: 'app-green-section',

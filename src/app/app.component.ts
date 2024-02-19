@@ -4,8 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { EntryComponent } from './entry/entry.component';
-import { GreenSectionComponent } from './green-section/green-section.component';
+import { EntryComponent } from './components/entry/entry.component';
+import { GreenSectionComponent } from './components/green-section/green-section.component';
 
 @Component({
   selector: 'app-root',
