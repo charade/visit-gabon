@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
-import { MediaBreakPointsObserver } from '../breakpoint-observer';
+import { MediaBreakPointsObserver } from '../utils/breakpoint-observer';
+import { UserAgent } from '../utils/user-agent';
 
 @Component({
   selector: 'app-green-section',
@@ -15,31 +16,12 @@ export class GreenSectionComponent
   implements AfterViewInit
 {
   @Input() animationTimeline: gsap.core.Timeline;
+  UserAgent = UserAgent;
 
   #greenSectionSecondContentBgCinematic = 'cinematic';
 
   ngAfterViewInit(): void {
     const svgElement = document.querySelector('.clipGreenVideo') as SVGAElement;
-
-    svgElement.addEventListener('pointerenter', (e) =>
-      gsap.to('.cursor-mask', {
-        y: -31,
-        x: -20,
-        scale: 2.5,
-        ease: 'sin.inOut',
-        duration: 0.5,
-      })
-    );
-
-    svgElement.addEventListener('pointerleave', () =>
-      gsap.to('.cursor-mask', {
-        scale: 1,
-        y: 0,
-        x: 0,
-        ease: 'sin.inOut',
-        duration: 0.8,
-      })
-    );
 
     this.animationTimeline.add(
       this.#enteringGreenSectionIntroContentAnimation()
@@ -59,9 +41,6 @@ export class GreenSectionComponent
           end: 'top 98%',
           scrub: 3,
         },
-      })
-      .to('.cursor-mask', {
-        opacity: 0,
       })
       .from('.green-section-contents-container', {
         opacity: 0,
@@ -116,7 +95,7 @@ export class GreenSectionComponent
       )
       .from('.green-section-second-content-bg', {
         filter: 'grayscale(0)',
-        scale: 0.9,
+        scale: 2,
         ease: 'none',
       });
   }
@@ -126,8 +105,8 @@ export class GreenSectionComponent
       .timeline({
         scrollTrigger: {
           trigger: 'section.green-section-intro',
-          start: 'top 44%',
-          end: 'top 44%',
+          start: 'top 40%',
+          end: 'top 40%',
           scrub: 3,
         },
       })
@@ -143,7 +122,7 @@ export class GreenSectionComponent
           y: 20,
           opacity: 0,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=55'
+        this.#greenSectionSecondContentBgCinematic + '+=58'
       )
       .from(
         '.green-section-second-content-description > p',
@@ -151,24 +130,11 @@ export class GreenSectionComponent
           y: -40,
           opacity: 0,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=55'
+        this.#greenSectionSecondContentBgCinematic + '+=58'
       )
-      .from(
-        '.green-section-second-content-explore',
-        {
-          clipPath: 'polygon(0 0, 100% 100%, 100% 100%, 0 100%)',
-          ease: 'none',
-        },
-        this.#greenSectionSecondContentBgCinematic + '+=60'
-      )
-      .from(
-        '.green-section-second-content-img-explore',
-        {
-          y: 30,
-          opacity: 0,
-          stagger: 0.4,
-        },
-        this.#greenSectionSecondContentBgCinematic + '+=62'
-      );
+      .from('.green-section-second-content-img-explore', {
+        stagger: 0.6,
+        scale: 0.7,
+      });
   }
 }

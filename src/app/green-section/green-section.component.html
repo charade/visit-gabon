@@ -8,18 +8,65 @@
     <svg
       class="clipGreenVideo"
       viewBox="0 0 400 600"
-      preserveAspectRatio="xMaxYMid slice"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <mask id="green-section-mask" x="0" y="0" width="100%" height="100%">
-          <rect x="0" y="0" x="0" y="0" width="100%" height="100%" />
-          <text x="123" y="295">Voyez</text>
-          <text x="133" y="335">Vert</text>
-          <circle class="cursor-mask" cx="64.3%" cy="54.1%" r="10" />
+          <rect x="0" y="0" x="0" y="0" />
+          <text
+            [ngClass]="{
+              'xl-device': isDeviceXL(),
+              'xl-device--firefox':
+                isDeviceXL() &&
+                navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+            }"
+            [attr.x]="
+              isDeviceXL() &&
+              navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+                ? 150
+                : 125
+            "
+            y="295"
+          >
+            Voyez
+          </text>
+          <text
+            [ngClass]="{
+              'xl-device': isDeviceXL(),
+              'xl-device--firefox':
+                isDeviceXL() &&
+                navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+            }"
+            [attr.x]="
+              isDeviceXL() &&
+              navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+                ? 155
+                : 133
+            "
+            [attr.y]="
+              isDeviceXL() &&
+              navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+                ? 320
+                : 335
+            "
+          >
+            Vert
+          </text>
+          <circle
+            class="cursor-mask"
+            [attr.cx]="isDeviceHandSet() ? '65%' : '58%'"
+            [attr.cy]="
+              navigator() === UserAgent.navigator.get(UserAgent.Firefox)
+                ? '52.1%'
+                : '54.1%'
+            "
+            r="10"
+          />
         </mask>
       </defs>
 
-      <rect x="0" y="0" width="100%" height="100%" />
+      <rect x="0" y="0" />
     </svg>
   </div>
   <div
@@ -107,11 +154,14 @@
             class="green-section-second-content-explore-content"
             [ngClass]="{ 'xl-device': isDeviceXL() }"
           >
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/chutes-de-kongou.jpg" alt="" />
+            <div
+              class="green-section-second-content-img-explore"
+              [attr.background]="'url(/assets/pics/nyonie.jpg)'"
+            >
+              <img src="/assets/pics/nyonie.jpg" alt="" />
             </div>
             <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/nyonie.jpg" alt="" />
+              <img src="/assets/pics/chutes-de-kongou.jpg" alt="" />
             </div>
             <div class="green-section-second-content-img-explore">
               <img src="/assets/pics/parc-de-loango.jpg" alt="" />
