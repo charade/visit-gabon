@@ -93,7 +93,7 @@ export class GreenSectionComponent
         scrollTrigger: {
           trigger: 'section.green-section-intro',
           start: 'top center',
-          end: 'top 40%',
+          end: 'top 45%',
           scrub: 4,
         },
       })
@@ -107,10 +107,6 @@ export class GreenSectionComponent
         opacity: 0,
         stagger: 0.3,
       })
-      .to('.green-section-contents', {
-        backgroundColor: 'rgb(173, 189, 175)',
-        duration: 1,
-      })
       .from(
         '.green-section-second-content',
         {
@@ -120,7 +116,8 @@ export class GreenSectionComponent
       )
       .from('.green-section-second-content-bg', {
         filter: 'grayscale(0)',
-        scale: 0.8,
+        scale: 0.9,
+        ease: 'none',
       });
   }
 
@@ -129,9 +126,9 @@ export class GreenSectionComponent
       .timeline({
         scrollTrigger: {
           trigger: 'section.green-section-intro',
-          start: 'top 40%',
-          end: 'top 40%',
-          scrub: 4,
+          start: 'top 44%',
+          end: 'top 44%',
+          scrub: 3,
         },
       })
 
@@ -146,7 +143,7 @@ export class GreenSectionComponent
           y: 20,
           opacity: 0,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=53'
+        this.#greenSectionSecondContentBgCinematic + '+=55'
       )
       .from(
         '.green-section-second-content-description > p',
@@ -154,14 +151,13 @@ export class GreenSectionComponent
           y: -40,
           opacity: 0,
         },
-        this.#greenSectionSecondContentBgCinematic + '+=53'
+        this.#greenSectionSecondContentBgCinematic + '+=55'
       )
       .from(
         '.green-section-second-content-explore',
         {
           clipPath: 'polygon(0 0, 100% 100%, 100% 100%, 0 100%)',
-          ease: 'sine',
-          duration: 5,
+          ease: 'none',
         },
         this.#greenSectionSecondContentBgCinematic + '+=60'
       )
@@ -170,9 +166,9 @@ export class GreenSectionComponent
         {
           y: 30,
           opacity: 0,
-          stagger: 0.3,
-        }
-        // this.#greenSectionSecondContentBgCinematic + '+=62'
+          stagger: 0.4,
+        },
+        this.#greenSectionSecondContentBgCinematic + '+=62'
       );
   }
 }
