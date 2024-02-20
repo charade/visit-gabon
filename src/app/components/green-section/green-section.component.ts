@@ -34,7 +34,7 @@ export class GreenSectionComponent
   #enteringGreenSectionIntroContentAnimation(): gsap.core.Timeline {
     return gsap
       .timeline({
-        ease: 'sine',
+        ease: 'sine.inOut',
         scrollTrigger: {
           trigger: 'section.green-section-intro',
           start: 'top 99%',
@@ -86,18 +86,30 @@ export class GreenSectionComponent
         opacity: 0,
         stagger: 0.3,
       })
+      .from('.green-section-second-content', {
+        opacity: 0,
+      })
+
       .from(
-        '.green-section-second-content',
+        '.green-section-second-content-bg',
         {
+          xPercent: -100,
+          width: 0,
           opacity: 0,
+          filter: 'grayscale(0)',
+          // scaleX: 5,
+          ease: 'expo.out',
+          // transformOrigin: 'right top',
+          duration: 5,
+          // scrollTrigger: {
+          //   trigger: 'section.green-section-intro',
+          //   start: 'top 45%',
+          //   end: 'top 45%',
+          //   scrub: 3,
+          // },
         },
         this.#greenSectionSecondContentBgCinematic
-      )
-      .from('.green-section-second-content-bg', {
-        filter: 'grayscale(0)',
-        scale: 2,
-        ease: 'none',
-      });
+      );
   }
 
   #enteringGreenSectionSecondContent(): gsap.core.Timeline {
@@ -105,7 +117,7 @@ export class GreenSectionComponent
       .timeline({
         scrollTrigger: {
           trigger: 'section.green-section-intro',
-          start: 'top 40%',
+          start: 'top 45%',
           end: 'top 40%',
           scrub: 3,
         },
@@ -132,9 +144,11 @@ export class GreenSectionComponent
         },
         this.#greenSectionSecondContentBgCinematic + '+=58'
       )
-      .from('.green-section-second-content-img-explore', {
-        stagger: 0.6,
-        scale: 0.7,
+      .from('.green-section-second-content-explore', { height: 0, opacity: 0 })
+      .from('.green-section-second-content-explore-content', {
+        opacity: 0,
+        xPercent: -100,
+        ease: 'sine.out',
       });
   }
 }

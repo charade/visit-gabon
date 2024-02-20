@@ -45,18 +45,19 @@ export class YellowSectionComponent implements AfterViewInit {
   }
 
   #mountLight(): void {
-    const ambientLight = new AmbientLight();
+    const ambientLight = new AmbientLight(0xffffff, 2);
     this.#scene.add(ambientLight);
   }
 
   #mountCamera(): void {
-    this.#camera.lookAt(-1, 0, 0);
+    // this.#camera.lookAt(-1, 0, 0);
   }
 
   #loadModel(): void {
     new GLTFLoader().load(ThreeUtils.Models.Sunset, ({ scene: _scene }) => {
       this.#scene.add(_scene);
-      console.log(_scene.position);
+      _scene.position.y = -0.3;
+      _scene.position.z = 0.5;
       this.#renderer.setAnimationLoop(() =>
         this.#renderer.render(this.#scene, this.#camera)
       );
