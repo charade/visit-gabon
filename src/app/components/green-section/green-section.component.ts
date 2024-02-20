@@ -97,16 +97,8 @@ export class GreenSectionComponent
           width: 0,
           opacity: 0,
           filter: 'grayscale(0)',
-          // scaleX: 5,
           ease: 'expo.out',
-          // transformOrigin: 'right top',
           duration: 5,
-          // scrollTrigger: {
-          //   trigger: 'section.green-section-intro',
-          //   start: 'top 45%',
-          //   end: 'top 45%',
-          //   scrub: 3,
-          // },
         },
         this.#greenSectionSecondContentBgCinematic
       );
@@ -144,7 +136,18 @@ export class GreenSectionComponent
         },
         this.#greenSectionSecondContentBgCinematic + '+=58'
       )
-      .from('.green-section-second-content-explore', { height: 0, opacity: 0 })
+      .fromTo(
+        '.green-section-second-content-explore',
+        {
+          opacity: 0,
+          clipPath: 'polygon(0% 0%, 100% 100%, 100% 100%, 0% 100%)',
+        },
+        {
+          opacity: 1,
+          height: '30rem',
+          clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+        }
+      )
       .from('.green-section-second-content-explore-content', {
         opacity: 0,
         xPercent: -100,
