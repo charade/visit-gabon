@@ -1,26 +1,38 @@
 :host {
   display: block;
   height: 100vh;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 8;
 
   .yellow-section-container {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
+    z-index: 8;
     width: 100%;
     height: 100%;
-    padding: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
 
-    canvas {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+    .yellow-section-catch-phrase-container {
+      height: 30rem;
+      padding-left: 1rem;
+      margin: 1rem 0;
+
+      h2 {
+        font-size: 14rem;
+        font-family: "long-bold";
+        margin: 0;
+        color: #000000b7;
+        line-height: 10.5rem;
+      }
+    }
+
+    .yellow-section-img-container {
+      // background-color: yellow;
+      height: 50%;
+      width: 200vw;
     }
   }
 }

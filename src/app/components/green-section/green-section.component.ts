@@ -93,12 +93,11 @@ export class GreenSectionComponent
       .from(
         '.green-section-second-content-bg',
         {
-          xPercent: -100,
-          width: 0,
+          xPercent: -30,
           opacity: 0,
           filter: 'grayscale(0)',
           ease: 'expo.out',
-          duration: 5,
+          duration: 3,
         },
         this.#greenSectionSecondContentBgCinematic
       );
