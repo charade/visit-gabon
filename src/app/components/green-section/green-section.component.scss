@@ -175,20 +175,21 @@
 
               &.leaf--1 {
                 left: -9%;
-                top: 70%;
+                top: 50%;
                 transform: rotate(-90deg);
-                animation: leaf1 5.5s infinite alternate-reverse ease-in-out;
+                animation: leaf1 3s infinite alternate-reverse ease-in-out;
+                transform-origin: bottom right;
               }
               &.leaf--2 {
                 left: -1%;
                 top: 71%;
                 transform: rotate(-150deg);
-                animation: leaf2 1.5s infinite alternate-reverse ease-in-out;
+                animation: leaf2 3s infinite alternate-reverse ease-in-out;
               }
               &.leaf--3 {
-                left: 89%;
-                top: 10%;
-                transform: rotate(45deg);
+                left: 92%;
+                top: 14%;
+                transform: rotate(25deg);
                 transform-origin: bottom left;
                 animation: leaf3 2.5s infinite alternate-reverse ease-in-out;
               }
@@ -397,19 +398,19 @@
 
 @keyframes leaf1 {
   from {
-    transform: translateY(-10px) rotate(-80deg);
+    transform: translateY(-3px) rotate(-110deg);
   }
   to {
-    transform: translateY(0) rotate(-95deg);
+    transform: translateY(0) rotate(-85deg);
   }
 }
 
 @keyframes leaf2 {
   from {
-    transform: translateY(8px) rotate(-160deg);
+    transform: rotate(-140deg);
   }
   to {
-    transform: translateY(0) rotate(-140deg);
+    transform: rotate(-160deg);
   }
 }
 @keyframes leaf3 {
