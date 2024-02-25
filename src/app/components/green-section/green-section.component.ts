@@ -21,8 +21,6 @@ export class GreenSectionComponent
   #greenSectionSecondContentBgCinematic = 'cinematic';
 
   ngAfterViewInit(): void {
-    const svgElement = document.querySelector('.clipGreenVideo') as SVGAElement;
-
     this.animationTimeline.add(
       this.#enteringGreenSectionIntroContentAnimation()
     );
@@ -31,6 +29,48 @@ export class GreenSectionComponent
     this.animationTimeline.add(this.#enteringGreenSectionSecondContent());
   }
 
+  readonly greenPics = [
+    {
+      src: '/assets/pics/nyonie.jpg',
+      alt: 'parc nyonie',
+      animationDuration: '5.5s',
+    },
+    {
+      src: '/assets/pics/chutes-de-kongou.jpg',
+      alt: 'chutes de kongou',
+      animationDuration: '4.8s',
+    },
+    {
+      src: '/assets/pics/parc-de-loango.jpg',
+      alt: 'parc de loango',
+      animationDuration: '4.5s',
+    },
+    {
+      src: '/assets/pics/parc-des-plateaux-bateke.jpg',
+      alt: 'plateaux bateke',
+      animationDuration: '4.1s',
+    },
+    {
+      src: '/assets/pics/parc-lope.jpg',
+      alt: 'parc lopé',
+      animationDuration: '4.9s',
+    },
+    {
+      src: '/assets/pics/parc-mayumba.jpg',
+      alt: 'p rc mayumba',
+      animationDuration: '4.7s',
+    },
+    {
+      src: '/assets/pics/parc-minkebe.jpg',
+      alt: 'parc minkébé',
+      animationDuration: '5s',
+    },
+    {
+      src: '/assets/pics/parc-pongara.jpg',
+      alt: 'parc pongara',
+      animationDuration: '4.5s',
+    },
+  ];
   #enteringGreenSectionIntroContentAnimation(): gsap.core.Timeline {
     return gsap
       .timeline({

@@ -1,4 +1,4 @@
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {
   Component,
   OnDestroy,
@@ -23,7 +23,7 @@ export class MediaBreakPointsObserver implements OnInit, OnDestroy {
   isDeviceL: WritableSignal<boolean> = signal(false);
   isDeviceXL: WritableSignal<boolean> = signal(false);
   isDeviceHandSet: WritableSignal<boolean> = signal(false);
-
+  isDeviceWeb: WritableSignal<boolean> = signal(false);
   navigator: WritableSignal<string | undefined> = signal(undefined);
 
   #mediaSizeObserver = inject(BreakpointObserver);
@@ -57,7 +57,10 @@ export class MediaBreakPointsObserver implements OnInit, OnDestroy {
         .subscribe((media) => this.isDeviceXL.set(media.matches)),
       this.#mediaSizeObserver
         .observe('(max-width: 1023px)')
-        .subscribe((media) => this.isDeviceHandSet.set(media.matches))
+        .subscribe((media) => this.isDeviceHandSet.set(media.matches)),
+      this.#mediaSizeObserver
+        .observe('(min-width: 1025px)')
+        .subscribe((media) => this.isDeviceWeb.set(media.matches))
     );
   }
 

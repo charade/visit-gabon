@@ -158,31 +158,24 @@
             [ngClass]="{ 'xl-device': isDeviceXL() }"
           >
             <div
-              class="green-section-second-content-img-explore"
-              [attr.background]="'url(/assets/pics/nyonie.jpg)'"
+              *ngFor="let pic of greenPics; let index = index"
+              class="green-section-second-content-parcs-explore"
             >
-              <img src="/assets/pics/nyonie.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/chutes-de-kongou.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-de-loango.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-des-plateaux-bateke.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-lope.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-mayumba.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-minkebe.jpg" alt="" />
-            </div>
-            <div class="green-section-second-content-img-explore">
-              <img src="/assets/pics/parc-pongara.jpg" alt="" />
+              <img
+                [src]="pic.src"
+                [alt]="pic.alt"
+                [style]="{ clipPath: 'url(#parc--' + index + ')' }"
+              />
+
+              <svg viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
+                <clipPath [id]="'parc--' + index">
+                  <path
+                    [style]="{ animationDuration: pic.animationDuration }"
+                    fill="#474bff"
+                    d="M474,277Q468,314,442.5,341Q417,368,395,395.5Q373,423,341.5,439Q310,455,275,458.5Q240,462,203,464.5Q166,467,136,445.5Q106,424,81,399Q56,374,42,341.5Q28,309,23,274.5Q18,240,24,206Q30,172,44.5,140.5Q59,109,82.5,82.5Q106,56,139,43Q172,30,206,24.5Q240,19,277,16.5Q314,14,340.5,39.5Q367,65,395,86Q423,107,443,137Q463,167,471.5,203.5Q480,240,474,277Z"
+                  />
+                </clipPath>
+              </svg>
             </div>
           </div>
         </div>

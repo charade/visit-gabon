@@ -181,17 +181,17 @@
                 transform-origin: bottom right;
               }
               &.leaf--2 {
-                left: -1%;
+                left: -3%;
                 top: 71%;
                 transform: rotate(-150deg);
                 animation: leaf2 3s infinite alternate-reverse ease-in-out;
               }
               &.leaf--3 {
-                left: 92%;
-                top: 14%;
-                transform: rotate(25deg);
+                left: 88%;
+                top: 54%;
+                transform: rotate(55deg);
                 transform-origin: bottom left;
-                animation: leaf3 2.5s infinite alternate-reverse ease-in-out;
+                animation: leaf3 4s infinite alternate-reverse ease-in-out;
               }
             }
 
@@ -322,7 +322,7 @@
             overflow-x: scroll;
             overflow-y: hidden;
             margin-top: 2rem;
-            background-color: #00000053;
+            background-color: #000000a2;
             user-select: none;
 
             &.xs-device {
@@ -355,11 +355,10 @@
               width: 100%;
               padding-top: 2rem;
 
-              .green-section-second-content-img-explore {
+              .green-section-second-content-parcs-explore {
                 position: relative;
                 width: 20rem;
                 height: 19rem;
-                box-shadow: 0 0 10px #fff;
                 transition: all 0.3s ease;
                 cursor: pointer;
                 margin: 0 0.25rem;
@@ -367,18 +366,20 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                overflow: visible;
 
                 &::before {
                   content: "";
                   position: absolute;
                   top: 0.5rem;
-                  left: 0.1rem;
+                  left: -0.1rem;
                   width: 100%;
                   height: 100%;
                   border-radius: 50%;
-                  border-top: 1px solid #ffffffe5;
-                  border-right: 1px solid #ffffffe5;
-                  border-bottom: 1px solid #ffffffe5;
+                  border: none;
+                  border-top: 1px solid #ffffff3e;
+                  border-right: 1px solid #ffffff3e;
+                  border-bottom: 1px solid #ffffff3e;
                 }
 
                 img {
@@ -386,6 +387,20 @@
                   width: 20rem;
                   height: 20rem;
                   border-radius: 50%;
+                }
+
+                svg {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 30rem;
+                  height: 30rem;
+
+                  path {
+                    animation: greenParcsAnimation linear infinite
+                      alternate-reverse;
+                    transform: translate(2%, 8%) scale(0.41);
+                  }
                 }
               }
             }
@@ -398,26 +413,58 @@
 
 @keyframes leaf1 {
   from {
-    transform: translateY(-3px) rotate(-110deg);
+    transform: translateY(0) rotate(-85deg);
   }
   to {
-    transform: translateY(0) rotate(-85deg);
+    transform: translateY(-3px) rotate(-110deg);
   }
 }
 
 @keyframes leaf2 {
   from {
-    transform: rotate(-140deg);
+    transform: rotate(-160deg);
   }
   to {
-    transform: rotate(-160deg);
+    transform: rotate(-140deg);
   }
 }
 @keyframes leaf3 {
   from {
-    transform: rotate(45deg);
+    transform: translateY(20px) (120deg);
   }
   to {
-    transform: rotate(65deg);
+    transform: translateY(0) rotate(123deg);
+  }
+}
+
+@keyframes greenParcsAnimation {
+  0% {
+    d: path(
+      "M461,275Q456,310,435.5,338.5Q415,367,392,392Q369,417,339.5,436.5Q310,456,275,461.5Q240,467,205,461.5Q170,456,139,438.5Q108,421,83,396.5Q58,372,35.5,343Q13,314,7,277Q1,240,8.5,203.5Q16,167,35.5,136Q55,105,81,81Q107,57,139,43Q171,29,205.5,23Q240,17,275.5,18.5Q311,20,345.5,34Q380,48,399.5,79Q419,110,443,138Q467,166,466.5,203Q466,240,461,275Z"
+    );
+  }
+
+  25% {
+    d: path(
+      "M463,276.5Q466,313,449.5,346.5Q433,380,404.5,404Q376,428,344.5,446Q313,464,276.5,469.5Q240,475,203,471.5Q166,468,134.5,448Q103,428,77.5,402Q52,376,40.5,342.5Q29,309,26,274.5Q23,240,26,205.5Q29,171,41,137.5Q53,104,76,75Q99,46,133,30Q167,14,203.5,7Q240,0,276.5,7Q313,14,341.5,37Q370,60,397,83Q424,106,446,136Q468,166,464,203Q460,240,463,276.5Z"
+    );
+  }
+
+  50% {
+    d: path(
+      "M471.5,276.5Q466,313,447.5,345.5Q429,378,404,405Q379,432,344.5,444Q310,456,275,464Q240,472,206,460.5Q172,449,140.5,434.5Q109,420,79.5,399Q50,378,39.5,343.5Q29,309,26,274.5Q23,240,27.5,206Q32,172,45,140Q58,108,79.5,78Q101,48,135.5,36.5Q170,25,205,23.5Q240,22,276,20.5Q312,19,345.5,33.5Q379,48,397.5,80Q416,112,431.5,142.5Q447,173,462,206.5Q477,240,471.5,276.5Z"
+    );
+  }
+
+  75% {
+    d: path(
+      "M461,275Q456,310,443.5,344.5Q431,379,403.5,403Q376,427,344,444Q312,461,276,460.5Q240,460,205,458Q170,456,138,440.5Q106,425,79.5,400.5Q53,376,40.5,342.5Q28,309,20,274.5Q12,240,12.5,203Q13,166,38,138.5Q63,111,87,87Q111,63,141.5,47Q172,31,206,22.5Q240,14,274.5,21Q309,28,340,44Q371,60,396.5,84Q422,108,434,140.5Q446,173,456,206.5Q466,240,461,275Z"
+    );
+  }
+
+  100% {
+    d: path(
+      "M456,274Q448,308,437.5,342Q427,376,404,405Q381,434,347.5,450.5Q314,467,277,470.5Q240,474,203,470Q166,466,137.5,443.5Q109,421,83,397Q57,373,38,342.5Q19,312,12,276Q5,240,13.5,204.5Q22,169,38,137Q54,105,77,76Q100,47,134,33Q168,19,204,10.5Q240,2,275,13.5Q310,25,340.5,42Q371,59,400,80.5Q429,102,448.5,134Q468,166,466,203Q464,240,456,274Z"
+    );
   }
 }
