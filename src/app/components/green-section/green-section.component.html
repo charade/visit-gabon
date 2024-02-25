@@ -93,9 +93,21 @@
     <div class="green-section-contents">
       <div class="green-section-intro-content">
         <div class="low-video-container">
-          <img src="/assets/pics/leaf_1.png" alt="leaf" class="leaf leaf--1" />
-          <img src="/assets/pics/leaf_2.png" alt="leaf" class="leaf leaf--2" />
-          <img src="/assets/pics/leaf_1.png" alt="leaf" class="leaf leaf--3" />
+          <img
+            src="/assets/pics/green-section/leaf_1.png"
+            alt="leaf"
+            class="leaf leaf--1"
+          />
+          <img
+            src="/assets/pics/green-section/leaf_2.png"
+            alt="leaf"
+            class="leaf leaf--2"
+          />
+          <img
+            src="/assets/pics/green-section/leaf_1.png"
+            alt="leaf"
+            class="leaf leaf--3"
+          />
           <div class="low-video-content">
             <video autoplay playsinline [muted]="true" loop preload>
               <source src="/assets/videos/gabon_green.mp4" />
@@ -125,7 +137,7 @@
       <div class="green-section-second-content">
         <img
           class="green-section-second-content-bg"
-          src="/assets/pics/plateaux-bateke.jpg"
+          src="/assets/pics/green-section/plateaux-bateke.jpg"
           alt="plateaux_bateke"
         />
         <h2 class="green-section-second-content-catch-phrase">
@@ -133,10 +145,10 @@
         </h2>
         <div class="separator first"></div>
         <div class="green-section-second-content-description">
-          <p [ngClass]="{ 's-device': isDeviceS() }">
+          <p [ngClass]="{ 's-device': isDeviceS(), web: isDeviceWeb() }">
             Découvrez la beauté des chutes de Kongou, de Djidji et d’Iboundji,
             les paysages spectaculaires de la Lopé, de Wonga Wongué et des
-            Plateaux Batéké, les sommets des Monts de Cristal et du Massif du
+            Plateaux Batéké. Les sommets des Monts de Cristal et du Massif du
             Chaillu...<br />
             Découvrez le tout simplement sublime
           </p>

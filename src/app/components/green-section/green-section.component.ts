@@ -31,42 +31,42 @@ export class GreenSectionComponent
 
   readonly greenPics = [
     {
-      src: '/assets/pics/nyonie.jpg',
+      src: '/assets/pics/green-section/nyonie.jpg',
       alt: 'parc nyonie',
       animationDuration: '5.5s',
     },
     {
-      src: '/assets/pics/chutes-de-kongou.jpg',
+      src: '/assets/pics/green-section/chutes-de-kongou.jpg',
       alt: 'chutes de kongou',
       animationDuration: '4.8s',
     },
     {
-      src: '/assets/pics/parc-de-loango.jpg',
+      src: '/assets/pics/green-section/parc-de-loango.jpg',
       alt: 'parc de loango',
       animationDuration: '4.5s',
     },
     {
-      src: '/assets/pics/parc-des-plateaux-bateke.jpg',
+      src: '/assets/pics/green-section/parc-des-plateaux-bateke.jpg',
       alt: 'plateaux bateke',
       animationDuration: '4.1s',
     },
     {
-      src: '/assets/pics/parc-lope.jpg',
+      src: '/assets/pics/green-section/parc-lope.jpg',
       alt: 'parc lopé',
       animationDuration: '4.9s',
     },
     {
-      src: '/assets/pics/parc-mayumba.jpg',
-      alt: 'p rc mayumba',
+      src: '/assets/pics/green-section/parc-mayumba.jpg',
+      alt: 'parc mayumba',
       animationDuration: '4.7s',
     },
     {
-      src: '/assets/pics/parc-minkebe.jpg',
+      src: '/assets/pics/green-section/parc-minkebe.jpg',
       alt: 'parc minkébé',
       animationDuration: '5s',
     },
     {
-      src: '/assets/pics/parc-pongara.jpg',
+      src: '/assets/pics/green-section/parc-pongara.jpg',
       alt: 'parc pongara',
       animationDuration: '4.5s',
     },

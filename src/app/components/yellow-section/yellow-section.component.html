@@ -1,9 +1,25 @@
 <div class="yellow-section-container">
-  <h2 class="yellow-section-catch-phrase-container">
-    Découvrez<br />nos couchers<br />de soleil
+  <h2
+    class="yellow-section-catch-phrase-container"
+    [ngClass]="{
+      'sm-device': isDeviceSm(),
+      'm-device': isDeviceM(),
+      'xl-device': isDeviceXL(),
+      web: isDeviceWeb()
+    }"
+  >
+    Expérimentez <br />
+    nos couchers <br />
+    de soleil
   </h2>
 
-  <div class="background-img"></div>
+  <div
+    class="yellow-section-background-img"
+    [ngStyle]="{
+      backgroundImage:
+        'url(/assets/pics/yellow-section/tortue-coucher-soeil.jpg)'
+    }"
+  ></div>
 
   <!-- <svg class="yellow-section-bg-clipper" viewBox="0 0 1440 590">
     <clipPath id="yellow-section-bg">
@@ -44,6 +60,7 @@
     [ngClass]="{
       'xs-device': isDeviceXS(),
       'l-device': isDeviceL(),
+      'xl-device': isDeviceXL(),
       web: isDeviceWeb()
     }"
   >

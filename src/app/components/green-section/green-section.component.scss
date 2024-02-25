@@ -285,7 +285,7 @@
           }
 
           .separator {
-            width: 70%;
+            width: 68%;
             height: 0;
             border-bottom: 2px solid #ffffffcc;
             margin-left: 1rem;
@@ -302,13 +302,18 @@
               font-family: "KhandLight";
               width: 19em;
               color: #fff;
-              background-color: #21311ebd;
-              padding: 0.75rem;
+              background-color: #30422da9;
+              padding: 0.75rem 0.5rem;
               text-wrap: pretty;
               margin-right: 2.5rem;
+              border-radius: 5px;
 
               &.s-device {
                 font-size: 2.75rem;
+              }
+
+              &.web {
+                font-size: 2rem;
               }
             }
           }

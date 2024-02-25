@@ -14,22 +14,45 @@
 
     .yellow-section-catch-phrase-container {
       position: absolute;
-      top: 4rem;
+      top: 2rem;
       left: 1rem;
+      z-index: 5;
       height: 30rem;
+      font-size: 7rem;
+      font-family: "long-bold";
+      line-height: 5.75rem;
+      text-shadow: 0 0 3px rgba(211, 179, 74, 0.954), 0 0 10px #fff;
+      text-transform: uppercase;
+      color: #000000db;
       padding-left: 1rem;
       margin: 1rem 0;
-      font-size: 12rem;
-      font-family: "long-bold";
-      color: #000000b7;
-      line-height: 9rem;
-      z-index: 8;
+
+      &.sm-device {
+        font-size: 10rem;
+        line-height: 8rem;
+      }
+
+      &.m-device {
+        font-size: 12rem;
+        line-height: 9.5rem;
+        top: 3rem;
+      }
+      &.xl-device {
+        font-size: 17rem;
+        line-height: 14rem;
+        top: 10rem;
+      }
+
+      &.web {
+        font-size: 11rem;
+        line-height: 10rem;
+        top: 7rem;
+      }
     }
 
-    .background-img {
+    .yellow-section-background-img {
       width: 100%;
       height: 100%;
-      background-image: url("/assets/pics/parc-lope.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       clip-path: url(#yellow-section-bg);
@@ -43,9 +66,9 @@
       height: 70%;
       width: 100%;
       padding-top: 30rem;
-      // background-color: red;
+
       path {
-        transform: scale(0.1) translate(-70%, -30%);
+        transform: scale(0.1) translate(-80%, -80%);
       }
 
       &.xs-device path {
@@ -55,8 +78,11 @@
       &.l-device path {
         transform: scale(0.1) translate(-68%, 80%);
       }
+      &.xl-device path {
+        transform: scale(0.13) translate(-95%, -18%);
+      }
       &.web path {
-        transform: scale(0.09) translate(58%, -30%);
+        transform: scale(0.1) translate(-50%, -70%);
       }
     }
   }
