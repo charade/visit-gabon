@@ -80,19 +80,49 @@
   >
     <h1
       class="green-catch-phrase"
-      [ngClass]="{ 'xs-device': isDeviceXS(), 'm-device': isDeviceM() }"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
     >
       «Rester, c'est exister. Voyager, c'est vivre»
     </h1>
-    <h4>( Gustave Nadaud )</h4>
-    <h6>Maintenant, vous pouvez expirer ,</h6>
-    <h6>nous sommes carbone positif !</h6>
+    <h6 [ngClass]="{ 'xl-device': isDeviceXL() }">( Gustave Nadaud )</h6>
+    <h5
+      [ngClass]="{
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      Maintenant, vous pouvez expirer ,
+    </h5>
+    <h3
+      [ngClass]="{
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      nous sommes carbone positif !
+    </h3>
   </div>
+
+  <!-- green section second frame -->
 
   <div class="green-section-contents-container">
     <div class="green-section-contents">
       <div class="green-section-intro-content">
-        <div class="low-video-container">
+        <div
+          class="low-video-container"
+          [ngClass]="{
+            'sm-device': isDeviceSm(),
+            'm-device': isDeviceM(),
+            web: isDeviceWeb()
+          }"
+        >
           <img
             src="/assets/pics/green-section/leaf_1.png"
             alt="leaf"
@@ -115,20 +145,42 @@
           </div>
         </div>
 
-        <h2 class="green-section-intro-text-content">
+        <h2
+          class="green-section-intro-text-content"
+          [ngClass]="{
+            'xs-device': isDeviceXS(),
+            'xl-device': isDeviceXL(),
+            web: isDeviceWeb()
+          }"
+        >
           Découvrez la dimension du vert
         </h2>
-        <h3 class="green-section-intro-text-content">
+        <h3
+          class="green-section-intro-text-content"
+          [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+        >
           chez un leader mondial en protection de la biodiversité
         </h3>
-        <div class="green-species-description">
-          <div class="green-species-description-content">
+        <div
+          class="green-species-description"
+          [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+        >
+          <div
+            class="green-species-description-content"
+            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+          >
             <h3>+ 200 espèces de Mammifères</h3>
           </div>
-          <div class="green-species-description-content">
+          <div
+            class="green-species-description-content"
+            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+          >
             <h3>+ 600 espèces d'oiseaux</h3>
           </div>
-          <div class="green-species-description-content">
+          <div
+            class="green-species-description-content"
+            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+          >
             <h3>+ 800 espèces d'arbres</h3>
           </div>
         </div>

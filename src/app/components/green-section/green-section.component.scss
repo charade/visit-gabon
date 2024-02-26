@@ -111,29 +111,68 @@
         &.m-device {
           font-size: 5rem;
         }
+
+        &.xl-device {
+          font-size: 6rem;
+          margin-top: 3rem;
+        }
+
+        &.web {
+          font-size: 4rem;
+          margin-top: 2rem;
+        }
       }
 
-      h4 {
+      h6 {
         font-size: 1.25rem;
         font-family: "Quicksand";
         color: lightslategrey;
         margin-top: 1rem;
+
+        &.xl-device {
+          font-size: 2rem;
+        }
       }
 
-      h6 {
+      h5 {
+        margin-top: 2rem;
         font-size: 1.25rem;
         font-family: RobotoRegular;
         height: 0.25rem;
         color: #0e5d33e3;
 
-        &:first-child {
-          margin-top: 2rem;
+        &.m-device {
+          font-size: 2rem;
         }
 
-        &:last-child {
-          margin-top: 3rem;
-          font-family: "LoversQuarrel";
-          font-size: 3.5rem;
+        &.xl-device {
+          margin: 13rem;
+          font-size: 3rem;
+        }
+        &.web {
+          margin: 0;
+          font-size: 2rem;
+        }
+      }
+
+      h3 {
+        height: 0.25rem;
+        margin-top: 3rem;
+        font-family: "LoversQuarrel";
+        font-size: 3.5rem;
+        color: #0e5d33e3;
+
+        &.m-device {
+          font-size: 5rem;
+          margin-top: 5rem;
+        }
+
+        &.xl-device {
+          font-size: 8rem;
+        }
+
+        &.web {
+          font-size: 6rem;
         }
       }
     }
@@ -158,16 +197,33 @@
           .low-video-container {
             position: relative;
             @include flexCentered;
-            width: 26rem;
-            height: 26rem;
+            width: 15rem;
+            height: 15rem;
             border: none;
             border-radius: 50%;
-            margin: 2rem 0;
+            margin: 4rem 0;
             align-self: center;
             box-shadow: 5px -5px 12px#00000078, -4px 5px 15px #000000d7,
               5px 20px 20px #eeebeb78;
 
-            // overflow: hidden;
+            &.sm-device {
+              width: 22rem;
+              height: 22rem;
+              margin-bottom: 1rem;
+            }
+
+            &.m-device {
+              width: 30rem;
+              height: 30rem;
+              margin: 8rem;
+            }
+
+            &.web {
+              width: 23rem;
+              height: 23rem;
+              margin-bottom: 4rem;
+            }
+
             .leaf {
               position: absolute;
               width: 5rem;
@@ -181,15 +237,15 @@
                 transform-origin: bottom right;
               }
               &.leaf--2 {
-                left: -3%;
-                top: 71%;
+                left: 1%;
+                top: 78%;
                 transform: rotate(-150deg);
                 animation: leaf2 3s infinite alternate-reverse ease-in-out;
               }
               &.leaf--3 {
-                left: 88%;
-                top: 54%;
-                transform: rotate(55deg);
+                left: 91.5%;
+                top: 34%;
+                transform: rotate(65deg);
                 transform-origin: bottom left;
                 animation: leaf3 4s infinite alternate-reverse ease-in-out;
               }
@@ -197,8 +253,8 @@
 
             .low-video-content {
               @include flexCentered;
-              width: 25rem;
-              height: 25rem;
+              width: 97%;
+              height: 97%;
               border: none;
               border-radius: 50%;
               overflow: hidden;
@@ -206,13 +262,27 @@
             }
           }
 
-          h2 {
+          h2.green-section-intro-text-content {
             text-align: center;
-            margin: 1rem 0;
+            margin-top: 8rem;
             color: #d6d1d1;
             font-size: 3rem;
             font-weight: 300;
             font-family: "LoversQuarrel";
+
+            &.xs-device {
+              font-size: 4rem;
+              margin-top: 10rem;
+            }
+
+            &.xl-device {
+              font-size: 7rem;
+            }
+
+            &.web {
+              font-size: 3.5rem;
+              margin-top: -1rem;
+            }
           }
 
           h3.green-section-intro-text-content {
@@ -221,6 +291,16 @@
             font-family: "KhandLight";
             height: 5rem;
             margin-bottom: 5rem;
+
+            &.xl-device {
+              font-size: 3rem;
+              margin-bottom: 8rem;
+            }
+
+            &.web {
+              font-size: 1.75rem;
+              margin-bottom: 1rem;
+            }
           }
 
           .green-species-description {
@@ -228,7 +308,15 @@
             flex-direction: column;
             align-self: center;
 
-            div {
+            &.xl-device {
+              margin-top: 8rem;
+            }
+
+            &.web {
+              margin-top: 3rem;
+            }
+
+            div.green-species-description-content {
               display: flex;
               align-items: center;
               border-left: 4px solid #a0a0a0c4;
@@ -242,6 +330,22 @@
                 font-size: 1.8rem;
                 color: #d6d1d1;
                 height: 100%;
+              }
+
+              &.xl-device {
+                height: 5.5rem;
+
+                h3 {
+                  font-size: 3rem;
+                }
+              }
+
+              &.web {
+                height: 3rem;
+
+                h3 {
+                  font-size: 1.75rem;
+                }
               }
             }
           }
@@ -435,10 +539,10 @@
 }
 @keyframes leaf3 {
   from {
-    transform: translateY(20px) (120deg);
+    transform: translateY(3px) (75deg);
   }
   to {
-    transform: translateY(0) rotate(123deg);
+    transform: translateY(0) rotate(80deg);
   }
 }
 
