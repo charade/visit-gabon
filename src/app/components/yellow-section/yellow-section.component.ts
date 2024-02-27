@@ -24,11 +24,14 @@ export class YellowSectionComponent
       .timeline({
         scrollTrigger: {
           trigger: 'section.yellow-section',
-          start: 'top 65%',
-          end: 'top 65%',
-          scrub: 2,
+          start: 'top 75%',
+          end: 'top 75%',
+          scrub: 3,
         },
       })
-      .from('.yellow-section-container', { xPercent: -150, ease: 'expo.out' });
+      .from('.yellow-section-container', {
+        xPercent: -100,
+        ease: 'expo.out',
+      });
   }
 }
