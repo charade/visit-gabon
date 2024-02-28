@@ -1,0 +1,27 @@
+:host {
+  height: 100%;
+  display: block;
+
+  .blue-section-container {
+    position: relative;
+    height: 100%;
+    // background-color: #fff;
+    opacity: 0;
+
+    h2.blue-section-catch-phrase {
+      position: absolute;
+      top: 2rem;
+      left: 1rem;
+      z-index: 5;
+      height: 30rem;
+      font-size: 7rem;
+      font-family: "long-bold";
+      line-height: 5.75rem;
+      text-shadow: 0 0 2px rgba(211, 179, 74, 0.987), 0 0 20px #fff;
+      text-transform: uppercase;
+      color: #000000db;
+      padding-left: 1rem;
+      margin: 1rem 0;
+    }
+  }
+}

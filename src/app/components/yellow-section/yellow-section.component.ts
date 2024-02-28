@@ -17,6 +17,7 @@ export class YellowSectionComponent
 
   ngAfterViewInit(): void {
     this.animationTimeline.add(this.#enteringYellowSection());
+    this.animationTimeline.add(this.#exitYellowSection());
   }
 
   #enteringYellowSection(): gsap.core.Timeline {
@@ -26,12 +27,41 @@ export class YellowSectionComponent
           trigger: 'section.yellow-section',
           start: 'top 75%',
           end: 'top 75%',
-          scrub: 3,
+          scrub: 2,
         },
       })
       .from('.yellow-section-container', {
         xPercent: -100,
         ease: 'expo.out',
       });
+  }
+
+  #exitYellowSection(): gsap.core.Timeline {
+    return gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: 'section.yellow-section',
+          start: 'bottom bottom',
+          end: 'bottom top',
+          scrub: 3,
+        },
+      })
+      .to(
+        'h2.yellow-section-catch-phrase-container',
+        {
+          y: -100,
+          opacity: 0,
+        },
+        'exit yellow section'
+      )
+      .to(
+        '.yellow-section-bg-clipper path',
+        {
+          y: '+0.1%',
+          opacity: 0,
+          ease: 'sine',
+        },
+        'exit yellow section'
+      );
   }
 }

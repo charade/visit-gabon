@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EntryComponent } from './components/entry/entry.component';
 import { GreenSectionComponent } from './components/green-section/green-section.component';
 import { YellowSectionComponent } from './components/yellow-section/yellow-section.component';
+import { BlueSectionComponent } from './components/blue-section/blue-section.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { YellowSectionComponent } from './components/yellow-section/yellow-secti
     EntryComponent,
     GreenSectionComponent,
     YellowSectionComponent,
+    BlueSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

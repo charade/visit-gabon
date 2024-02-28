@@ -9,6 +9,13 @@
     section {
       height: 100vh;
       width: 100%;
+
+      &.yellow-section {
+        height: 80vh;
+      }
+      &.blue-section {
+        z-index: 300;
+      }
     }
   }
 }
