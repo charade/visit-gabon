@@ -5,7 +5,7 @@ import { IconEnum } from '../utils/icons-enum';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'icon',
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   templateUrl: './icon.component.html',

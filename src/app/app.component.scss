@@ -2,9 +2,31 @@
   display: block;
 
   .app-container {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    .audio-container {
+      position: fixed;
+      right: 1rem;
+      top: 0.75rem;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid #000;
+      box-shadow: 0 0 3px gold;
+      text-shadow: 0 0 3px gold;
+      padding: 0.5rem;
+
+      & > * {
+        font-size: 1.5rem;
+      }
+    }
 
     section {
       height: 100vh;
@@ -14,7 +36,7 @@
         height: 80vh;
       }
       &.blue-section {
-        z-index: 300;
+        z-index: 10;
       }
     }
   }

@@ -1,4 +1,21 @@
 <div class="app-container">
+  <div class="audio-container">
+    <audio
+      #audio
+      src="/assets/audio/Annie-Flore Batchiellilys_JE TINVITE.mp3"
+      preload="true"
+    ></audio>
+    <icon
+      *ngIf="audio.paused"
+      [iconName]="IconEnum.play"
+      (click)="audio.play()"
+    />
+    <icon
+      *ngIf="!audio.paused"
+      [iconName]="IconEnum.pause"
+      (click)="audio.pause()"
+    />
+  </div>
   <!-- <app-entry [animationTimeline]="mainAnimationTimeline" /> -->
   <green-section [animationTimeline]="mainAnimationTimeline" />
   <yellow-section [animationTimeline]="mainAnimationTimeline" />

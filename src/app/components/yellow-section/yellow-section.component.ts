@@ -51,6 +51,7 @@ export class YellowSectionComponent
         {
           y: -100,
           opacity: 0,
+          ease: 'power2',
         },
         'exit yellow section'
       )
@@ -59,7 +60,7 @@ export class YellowSectionComponent
         {
           y: '+0.1%',
           opacity: 0,
-          ease: 'sine',
+          ease: 'power2',
         },
         'exit yellow section'
       );
