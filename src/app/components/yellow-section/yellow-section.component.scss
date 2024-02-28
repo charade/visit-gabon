@@ -60,11 +60,20 @@
         url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg"),
         url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg"),
         url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
+
+      -moz-background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg"),
+        url("/assets/pics/yellow-section/coucher_soleil_1.jpg"),
+        url("/assets/pics/yellow-section/coucher-soleil.jpg"),
+        url("/assets/pics/yellow-section/coucher_soleil_peche.jpg"),
+        url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg"),
+        url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg"),
+        url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
+
       background-size: cover;
       background-repeat: no-repeat;
       clip-path: url(#yellow-section-bg);
       animation: yellowSectionBgAnim 35s ease infinite alternate-reverse;
-      transition-delay: 0.3s;
+      transition-delay: 3s;
       transition-duration: 5s;
     }
 
@@ -102,10 +111,10 @@
   0% {
     background-position: center left;
     background-image: url("/assets/pics/yellow-section/coucher_soleil_1.jpg");
+    transform: scale(1.1);
   }
 
   20% {
-    transform: scale(1.1);
     background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg");
   }
 
@@ -115,17 +124,15 @@
   }
 
   60% {
-    transform: scale(1);
     background-image: url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg");
   }
 
   80% {
-    background-position: center left;
     background-image: url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg");
   }
 
   100% {
-    transform: scale(1.1);
+    background-position: center right;
     background-image: url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
   }
 }
