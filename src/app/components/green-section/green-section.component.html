@@ -1,6 +1,6 @@
-<div class="green-section-container">
-  <div class="clipped-hight-videos-container">
-    <div class="high-video">
+<div class="green-section-intro-container">
+  <div class="green-section-intro-clipped-video">
+    <div class="intro-clipped-video">
       <video autoplay playsinline [muted]="true" loop preload>
         <source src="/assets/videos/gabon_green.mp4" />
       </video>
@@ -9,7 +9,6 @@
       class="clipGreenVideo"
       viewBox="0 0 400 600"
       preserveAspectRatio="xMidYMid slice"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <mask id="green-section-mask" x="0" y="0" width="100%" height="100%">
@@ -109,138 +108,166 @@
       nous sommes carbone positif !
     </h3>
   </div>
+</div>
 
-  <!-- green section second frame -->
-
-  <div class="green-section-contents-container">
-    <div class="green-section-contents">
-      <div class="green-section-intro-content">
-        <div
-          class="low-video-container"
-          [ngClass]="{
-            'sm-device': isDeviceSm(),
-            'm-device': isDeviceM(),
-            web: isDeviceWeb()
-          }"
-        >
-          <img
-            src="/assets/pics/green-section/leaf_1.png"
-            alt="leaf"
-            class="leaf leaf--1"
-          />
-          <img
-            src="/assets/pics/green-section/leaf_2.png"
-            alt="leaf"
-            class="leaf leaf--2"
-          />
-          <img
-            src="/assets/pics/green-section/leaf_1.png"
-            alt="leaf"
-            class="leaf leaf--3"
-          />
-          <div class="low-video-content">
-            <video autoplay playsinline [muted]="true" loop preload>
-              <source src="/assets/videos/gabon_green.mp4" />
-            </video>
-          </div>
-        </div>
-
-        <h2
-          class="green-section-intro-text-content"
-          [ngClass]="{
-            'xs-device': isDeviceXS(),
-            'xl-device': isDeviceXL(),
-            web: isDeviceWeb()
-          }"
-        >
-          Découvrez la dimension du vert
-        </h2>
-        <h3
-          class="green-section-intro-text-content"
-          [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
-        >
-          chez un leader mondial en protection de la biodiversité
-        </h3>
-        <div
-          class="green-species-description"
-          [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
-        >
-          <div
-            class="green-species-description-content"
-            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
-          >
-            <h3>+ 200 espèces de Mammifères</h3>
-          </div>
-          <div
-            class="green-species-description-content"
-            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
-          >
-            <h3>+ 600 espèces d'oiseaux</h3>
-          </div>
-          <div
-            class="green-species-description-content"
-            [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
-          >
-            <h3>+ 800 espèces d'arbres</h3>
-          </div>
-        </div>
+<!-- green section second frame -->
+<div class="green-section-contents">
+  <div class="green-section-first-content">
+    <div
+      class="low-video-container"
+      [ngClass]="{
+        'sm-device': isDeviceSm(),
+        'm-device': isDeviceM(),
+        web: isDeviceWeb()
+      }"
+    >
+      <img
+        src="/assets/pics/green-section/leaf_1.png"
+        alt="leaf"
+        class="leaf leaf--1"
+      />
+      <img
+        src="/assets/pics/green-section/leaf_2.png"
+        alt="leaf"
+        class="leaf leaf--2"
+      />
+      <img
+        src="/assets/pics/green-section/leaf_1.png"
+        alt="leaf"
+        class="leaf leaf--3"
+      />
+      <div class="green-first-content-rounded-video">
+        <video autoplay playsinline [muted]="true" loop preload>
+          <source src="/assets/videos/gabon_green.mp4" />
+        </video>
       </div>
+    </div>
 
-      <div class="green-section-second-content">
-        <img
-          class="green-section-second-content-bg"
-          src="/assets/pics/green-section/plateaux-bateke.jpg"
-          alt="plateaux_bateke"
-        />
-        <h2 class="green-section-second-content-catch-phrase">
-          Naturellement unique
-        </h2>
-        <div class="separator first"></div>
-        <div class="green-section-second-content-description">
-          <p [ngClass]="{ 's-device': isDeviceS(), web: isDeviceWeb() }">
-            Découvrez la beauté des chutes de Kongou, de Djidji et d’Iboundji,
-            les paysages spectaculaires de la Lopé, de Wonga Wongué et des
-            Plateaux Batéké. Les sommets des Monts de Cristal et du Massif du
-            Chaillu...<br />
-            Découvrez le tout simplement sublime
-          </p>
-        </div>
+    <h2
+      class="green-section-first-content-catch-phrase"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      Découvrez la dimension du vert
+    </h2>
+    <h3
+      class="green-section-first-content-catch-phrase"
+      [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+    >
+      chez un leader mondial en protection de la biodiversité
+    </h3>
+    <div
+      class="green-section-first-content-species-description"
+      [ngClass]="{
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      <div
+        class="green-section-first-content-species-description-content"
+        [ngClass]="{
+          'm-device': isDeviceM(),
+          'xl-device': isDeviceXL(),
+          web: isDeviceWeb()
+        }"
+      >
+        <h3>+ 800 espèces d'arbres</h3>
+      </div>
+      <div
+        class="green-section-first-content-species-description-content"
+        [ngClass]="{
+          'm-device': isDeviceM(),
+          'xl-device': isDeviceXL(),
+          web: isDeviceWeb()
+        }"
+      >
+        <h3>+ 600 espèces d'oiseaux</h3>
+      </div>
+      <div
+        class="green-section-first-content-species-description-content"
+        [ngClass]="{
+          'm-device': isDeviceM(),
+          'xl-device': isDeviceXL(),
+          web: isDeviceWeb()
+        }"
+      >
+        <h3>+ 200 espèces de Mammifères</h3>
+      </div>
+    </div>
+  </div>
 
+  <div class="green-section-second-content-container">
+    <h2
+      class="green-section-second-content-catch-phrase"
+      [ngClass]="{ 'xs-device': isDeviceXS(), 'xl-device': isDeviceXL() }"
+    >
+      Naturellement unique
+    </h2>
+    <div class="green-section-second-content-description">
+      <p
+        [ngClass]="{
+          'xs-device': isDeviceXS(),
+          's-device': isDeviceS(),
+          web: isDeviceWeb()
+        }"
+      >
+        Découvrez la beauté des chutes de Kongou, de Djidji et d’Iboundji, les
+        paysages spectaculaires de la Lopé, de Wonga Wongué et des Plateaux
+        Batéké. Les sommets des Monts de Cristal et du Massif du Chaillu...<br />
+        Découvrez le tout simplement sublime
+      </p>
+    </div>
+
+    <div
+      class="green-section-second-content"
+      [ngClass]="{ web: isDeviceWeb() }"
+    >
+      <img
+        #greenSectionSecondContentBg
+        class="green-section-second-content-bg"
+        src="/assets/pics/green-section/plateaux-bateke.jpg"
+        alt="plateaux_bateke"
+      />
+      <div
+        class="green-section-second-content-explore"
+        [ngClass]="{
+          'xs-device': isDeviceXS(),
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
+          'm-device': isDeviceM(),
+          'l-device': isDeviceL(),
+          'xl-device': isDeviceXL()
+        }"
+      >
         <div
-          class="green-section-second-content-explore"
-          [ngClass]="{
-            'xs-device': isDeviceXS(),
-            's-device': isDeviceS(),
-            'sm-device': isDeviceSm(),
-            'm-device': isDeviceM(),
-            'l-device': isDeviceL(),
-            'xl-device': isDeviceXL()
-          }"
+          class="green-section-second-content-explore-content"
+          [ngClass]="{ 'xl-device': isDeviceXL() }"
         >
           <div
-            class="green-section-second-content-explore-content"
-            [ngClass]="{ 'xl-device': isDeviceXL() }"
+            *ngFor="let pic of greenPics; let index = index"
+            class="green-section-second-content-parcs-explore"
+            (click)="greenSectionSecondContentBg.src = pic.src"
           >
-            <div
-              *ngFor="let pic of greenPics; let index = index"
-              class="green-section-second-content-parcs-explore"
-            >
-              <img
-                [src]="pic.src"
-                [alt]="pic.alt"
-                [style]="{ clipPath: 'url(#parc--' + index + ')' }"
-              />
+            <img
+              [src]="pic.src"
+              [alt]="pic.alt"
+              [style]="{ clipPath: 'url(#parc--' + index + ')' }"
+            />
 
-              <svg viewBox="0 0 80 80" preserveAspectRatio="xMidYMid meet">
-                <clipPath [id]="'parc--' + index">
-                  <path
-                    [style]="{ animationDuration: pic.animationDuration }"
-                    fill="#474bff"
-                    d="M474,277Q468,314,442.5,341Q417,368,395,395.5Q373,423,341.5,439Q310,455,275,458.5Q240,462,203,464.5Q166,467,136,445.5Q106,424,81,399Q56,374,42,341.5Q28,309,23,274.5Q18,240,24,206Q30,172,44.5,140.5Q59,109,82.5,82.5Q106,56,139,43Q172,30,206,24.5Q240,19,277,16.5Q314,14,340.5,39.5Q367,65,395,86Q423,107,443,137Q463,167,471.5,203.5Q480,240,474,277Z"
-                  />
-                </clipPath>
-              </svg>
-            </div>
+            <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+              <clipPath [id]="'parc--' + index">
+                <path
+                  [style]="{ animationDuration: pic.animationDuration }"
+                  fill="#FF0066"
+                  d="M416.5,342Q358,444,241.5,442Q125,440,64.5,340Q4,240,66,143.5Q128,47,240.5,46Q353,45,414,142.5Q475,240,416.5,342Z"
+                  transform="translate(100 100)"
+                />
+              </clipPath>
+            </svg>
           </div>
         </div>
       </div>

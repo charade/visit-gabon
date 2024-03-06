@@ -17,10 +17,12 @@
     />
   </div>
   <!-- <app-entry [animationTimeline]="mainAnimationTimeline" /> -->
-  <green-section [animationTimeline]="mainAnimationTimeline" />
-  <yellow-section [animationTimeline]="mainAnimationTimeline" />
-  <section class="green-section-intro"></section>
-  <section class="yellow-section"></section>
+  <section class="green-section">
+    <green-section [animationTimeline]="mainAnimationTimeline" />
+  </section>
+  <section class="yellow-section">
+    <yellow-section [animationTimeline]="mainAnimationTimeline" />
+  </section>
   <section class="blue-section">
     <blue-section [animationTimeline]="mainAnimationTimeline" />
   </section>
