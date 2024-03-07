@@ -122,17 +122,17 @@
       }"
     >
       <img
-        src="/assets/pics/green-section/leaf_1.png"
+        src="/assets/pics/g-section/leaf_1.png"
         alt="leaf"
         class="leaf leaf--1"
       />
       <img
-        src="/assets/pics/green-section/leaf_2.png"
+        src="/assets/pics/g-section/leaf_2.png"
         alt="leaf"
         class="leaf leaf--2"
       />
       <img
-        src="/assets/pics/green-section/leaf_1.png"
+        src="/assets/pics/g-section/leaf_1.png"
         alt="leaf"
         class="leaf leaf--3"
       />
@@ -229,7 +229,7 @@
       <img
         #greenSectionSecondContentBg
         class="green-section-second-content-bg"
-        src="/assets/pics/green-section/plateaux-bateke.jpg"
+        src="/assets/pics/g-section/plateaux-bateke.jpg"
         alt="plateaux_bateke"
       />
       <div
@@ -250,7 +250,12 @@
           <div
             *ngFor="let pic of greenPics; let index = index"
             class="green-section-second-content-parcs-explore"
-            (click)="greenSectionSecondContentBg.src = pic.src"
+            (click)="
+              onSelectGreenSectionSecondContentBg(
+                greenSectionSecondContentBg,
+                pic.src
+              )
+            "
           >
             <img
               [src]="pic.src"

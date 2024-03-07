@@ -21,50 +21,54 @@ export class GreenSectionComponent
 
   readonly greenPics = [
     {
-      src: '/assets/pics/green-section/nyonie.jpg',
+      src: '/assets/pics/g-section/nyonie.jpg',
       alt: 'parc nyonie',
       animationDuration: '17.5s',
     },
     {
-      src: '/assets/pics/green-section/chutes-de-kongou.jpg',
+      src: '/assets/pics/g-section/elephants_plage.jpg',
       alt: 'chutes de kongou',
       animationDuration: '8.8s',
     },
     {
-      src: '/assets/pics/green-section/parc-de-loango.jpg',
+      src: '/assets/pics/g-section/perroquets.jpg',
       alt: 'parc de loango',
       animationDuration: '14.5s',
     },
     {
-      src: '/assets/pics/green-section/parc-des-plateaux-bateke.jpg',
+      src: '/assets/pics/g-section/parc-des-plateaux-bateke.jpg',
       alt: 'plateaux bateke',
       animationDuration: '18.1s',
     },
     {
-      src: '/assets/pics/green-section/parc-lope.jpg',
+      src: '/assets/pics/g-section/parc-lope.jpg',
       alt: 'parc lopé',
       animationDuration: '7.9s',
     },
     {
-      src: '/assets/pics/green-section/parc-mayumba.jpg',
+      src: '/assets/pics/g-section/parc-mayumba.jpg',
       alt: 'parc mayumba',
       animationDuration: '16.7s',
     },
     {
-      src: '/assets/pics/green-section/parc-minkebe.jpg',
+      src: '/assets/pics/g-section/monts-de-crystal.jpg',
       alt: 'parc minkébé',
       animationDuration: '13s',
     },
     {
-      src: '/assets/pics/green-section/parc-pongara.jpg',
+      src: '/assets/pics/g-section/parc-pongara.jpg',
       alt: 'parc pongara',
       animationDuration: '19.5s',
+    },
+    {
+      src: '/assets/pics/g-section/plateaux-bateke.jpg',
+      alt: 'plateaux bateke',
+      animationDuration: '10.5s',
     },
   ];
 
   ngAfterViewInit(): void {
     this.animationTimeline.add(this.#enteringGreenSectionFirstContent());
-    this.animationTimeline.add(this.#exitGreenSectionFirstContent());
     this.animationTimeline.add(this.#enteringGreenSectionSecondContent());
   }
 
@@ -74,6 +78,7 @@ export class GreenSectionComponent
       .from('.green-section-first-content-catch-phrase', {
         y: -80,
         opacity: 0,
+        delay: 0.3,
         scrollTrigger: {
           trigger: '.green-section-first-content',
           start: 'top 43%',
@@ -123,18 +128,6 @@ export class GreenSectionComponent
     return tl;
   }
 
-  #exitGreenSectionFirstContent(): gsap.core.Tween {
-    return gsap.to('.green-section-first-content', {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.green-section-first-content',
-        start: 'bottom 10%',
-        end: 'bottom 10%',
-        scrub: 3,
-      },
-    });
-  }
-
   #enteringGreenSectionSecondContent(): gsap.core.Timeline {
     return gsap
       .timeline()
@@ -158,5 +151,18 @@ export class GreenSectionComponent
           scrub: 3,
         },
       });
+  }
+
+  onSelectGreenSectionSecondContentBg(
+    img: HTMLImageElement,
+    newSrc: string
+  ): void {
+    gsap
+      .timeline()
+      .fromTo(
+        img,
+        { scaleX: 3, ease: 'expo.out', opacity: 0.7 },
+        { opacity: 1, scale: 1, attr: { src: `${newSrc}` }, ease: 'expo.out' }
+      );
   }
 }
