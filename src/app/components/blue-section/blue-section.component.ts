@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
+import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
 
 @Component({
   selector: 'blue-section',
@@ -9,7 +10,10 @@ import gsap from 'gsap';
   templateUrl: './blue-section.component.html',
   styleUrls: ['./blue-section.component.scss'],
 })
-export class BlueSectionComponent implements AfterViewInit {
+export class BlueSectionComponent
+  extends MediaBreakPointsObserver
+  implements AfterViewInit
+{
   @Input() animationTimeline: gsap.core.Timeline;
 
   ngAfterViewInit(): void {

@@ -26,9 +26,14 @@ export class GreenSectionComponent
       animationDuration: '17.5s',
     },
     {
-      src: '/assets/pics/g-section/elephants_plage.jpg',
+      src: '/assets/pics/g-section/elephants.jpg',
       alt: 'chutes de kongou',
       animationDuration: '8.8s',
+    },
+    {
+      src: '/assets/pics/g-section/parc-lope.jpg',
+      alt: 'parc lopé',
+      animationDuration: '7.9s',
     },
     {
       src: '/assets/pics/g-section/perroquets.jpg',
@@ -39,11 +44,6 @@ export class GreenSectionComponent
       src: '/assets/pics/g-section/parc-des-plateaux-bateke.jpg',
       alt: 'plateaux bateke',
       animationDuration: '18.1s',
-    },
-    {
-      src: '/assets/pics/g-section/parc-lope.jpg',
-      alt: 'parc lopé',
-      animationDuration: '7.9s',
     },
     {
       src: '/assets/pics/g-section/parc-mayumba.jpg',
@@ -130,9 +130,7 @@ export class GreenSectionComponent
 
   #enteringGreenSectionSecondContent(): gsap.core.Timeline {
     return gsap
-      .timeline()
-      .from('.green-section-second-content-bg', {
-        scale: 0.5,
+      .timeline({
         scrollTrigger: {
           trigger: '.green-section-second-content',
           start: 'top 60%',
@@ -141,15 +139,12 @@ export class GreenSectionComponent
         },
       })
       .from('.green-section-second-content-bg', {
-        scale: 1,
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.green-section-second-content',
-          start: 'bottom 45%',
-          end: 'bottom 45%',
-          toggleActions: 'play reverse none reverse',
-          scrub: 3,
-        },
+        scale: 0.5,
+      })
+      .from('.green-section-second-content-explore', {
+        y: 30,
+        ease: 'sine.in',
+        opacity: 0,
       });
   }
 

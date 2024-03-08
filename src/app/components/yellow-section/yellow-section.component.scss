@@ -11,38 +11,47 @@
 
     .yellow-section-catch-phrase-container {
       position: absolute;
-      top: 2rem;
+      top: 0.5rem;
       left: 1rem;
       z-index: 5;
       height: 30rem;
-      font-size: 7rem;
+      font-size: 5rem;
       font-family: "EasyNovember";
       line-height: 5.75rem;
-      text-shadow: 0 0 3px rgba(211, 179, 74, 0.987), 0 0 10px #fff;
+      text-shadow: 0 0 2px rgba(211, 179, 74, 0.987), 0 0 10px #fff;
       color: #000000db;
       padding-left: 1rem;
       margin: 1rem 0;
+      word-spacing: 0.75rem;
+      text-wrap: pretty;
+
+      &.xs-device {
+        font-size: 4.5rem;
+        left: 1rem;
+      }
 
       &.sm-device {
-        font-size: 10rem;
-        line-height: 8rem;
+        font-size: 5rem;
+        line-height: 6rem;
       }
 
       &.m-device {
-        font-size: 12rem;
+        font-size: 7rem;
         line-height: 9.5rem;
         top: 3rem;
       }
       &.xl-device {
-        font-size: 17rem;
+        font-size: 12rem;
         line-height: 14rem;
         top: 10rem;
       }
 
       &.web {
-        font-size: 11rem;
-        line-height: 10rem;
-        top: 7rem;
+        font-size: 5rem;
+        line-height: 6rem;
+        top: 3rem;
+        left: 60%;
+        text-shadow: none;
       }
     }
 
