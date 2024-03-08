@@ -1,18 +1,42 @@
-<div class="blue-section-container">
+<div class="blue-section-container" [ngClass]="{ web: isDeviceWeb() }">
   <h2
     class="blue-section-catch-phrase"
-    [ngClass]="{ 'm-device': isDeviceM(), 'xl-device': isDeviceXL() }"
+    [ngClass]="{
+      'm-device': isDeviceM(),
+      'xl-device': isDeviceXL(),
+      web: isDeviceWeb()
+    }"
   >
     Rêvez bleu
   </h2>
   <div class="blue-section-pics-container">
-    <!-- <img src="" alt="" class="blue-section-pic first-content-pic" />
-    <img src="" alt="" class="blue-section-pic first-content-pic" />
-    <img src="" alt="" class="blue-section-pic first-content-pic" /> -->
-  </div>
-  <div class="blue-section-pics-container">
-    <!-- <img src="" alt="" class="blue-section-pic second-content-pic" />
-    <img src="" alt="" class="blue-section-pic second-content-pic" />
-    <img src="" alt="" class="blue-section-pic second-content-pic" /> -->
+    <div
+      *ngFor="let pic of blueSectionPic; let index = index"
+      [class]="'blue-pic-container--' + index"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        's-device': isDeviceS(),
+        'sm-device': isDeviceSm(),
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      <img class="blue-section-pic" [src]="pic.src" [alt]="pic.alt" />
+    </div>
+    <div
+      class="blue-section-video"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        's-device': isDeviceS(),
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
+    >
+      <video autoplay [muted]="true" preload loop>
+        <source src="/assets/videos/gabon-blue.mp4" />
+      </video>
+    </div>
   </div>
 </div>

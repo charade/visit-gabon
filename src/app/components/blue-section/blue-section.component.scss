@@ -3,11 +3,12 @@
 
   .blue-section-container {
     position: relative;
-    height: 100vh;
+    height: 194vh;
     padding-top: 40rem;
-    border: 4px solid;
 
-    z-index: 8;
+    &.web {
+      height: 180vh;
+    }
     h2.blue-section-catch-phrase {
       position: absolute;
       top: 5rem;
@@ -21,6 +22,8 @@
       text-transform: capitalize;
       color: #000000db;
       text-align: center;
+      z-index: 1;
+      letter-spacing: -5px;
 
       &.m-device {
         font-size: 13rem;
@@ -31,14 +34,243 @@
         font-size: 15rem;
         top: 10rem;
       }
+
+      &.web {
+        top: 5rem;
+        font-size: 10rem;
+        letter-spacing: -0.5rem;
+      }
     }
 
     .blue-section-pics-container {
       width: 100%;
-      height: 45vh;
+      height: 160vh;
       position: relative;
-      border: 3px solid red;
       z-index: 2;
+      // border: 3px solid red;
+
+      & > * {
+        position: absolute;
+
+        z-index: 2;
+
+        &.blue-pic-container--0 {
+          width: 13rem;
+          height: 13rem;
+          top: 1rem;
+          left: 3rem;
+
+          &.xs-device {
+            width: 18rem;
+            height: 18rem;
+          }
+
+          &.sm-device {
+            width: 20rem;
+            height: 20rem;
+            left: 8rem;
+          }
+
+          &.m-device {
+            width: 39rem;
+            height: 24rem;
+          }
+
+          &.xl-device {
+            width: 50rem;
+          }
+
+          &.web {
+            width: 40rem;
+            height: 22rem;
+            left: 4%;
+          }
+        }
+
+        &.blue-pic-container--1 {
+          width: 13rem;
+          height: 16rem;
+          top: 24%;
+          left: 10%;
+
+          &.xs-device {
+            top: 23%;
+            width: 15rem;
+            height: 19rem;
+          }
+
+          &.sm-device {
+            width: 26rem;
+            height: 22rem;
+          }
+
+          &.m-device {
+            width: 36rem;
+            height: 21rem;
+          }
+
+          &.xl-device {
+            top: 18%;
+            left: 2%;
+            width: 35rem;
+            height: 30rem;
+          }
+
+          &.web {
+            top: 25rem;
+            left: 19%;
+            width: 45rem;
+            height: 27rem;
+          }
+        }
+
+        &.blue-pic-container--2 {
+          width: 21rem;
+          height: 18rem;
+          top: 63%;
+          left: 20%;
+
+          &.xs-device {
+            top: 66%;
+            width: 23rem;
+            height: 22rem;
+          }
+
+          &.sm-device {
+            left: 19%;
+            width: 40rem;
+            height: 22rem;
+          }
+
+          &.xl-device {
+            top: 60%;
+            left: 54%;
+            width: 50rem;
+            height: 38rem;
+          }
+
+          &.web {
+            top: 75%;
+            width: 47rem;
+            height: 17rem;
+          }
+        }
+
+        &.blue-pic-container--3 {
+          width: 10rem;
+          height: 14rem;
+          top: 14rem;
+          right: 1rem;
+
+          &.xs-device {
+            top: 19rem;
+            width: 13rem;
+            height: 17rem;
+          }
+
+          &.sm-device {
+            width: 18rem;
+            height: 20rem;
+          }
+
+          &.m-device {
+            width: 24rem;
+            height: 35rem;
+          }
+
+          &.xl-device {
+            width: 35rem;
+            height: 43rem;
+          }
+
+          &.web {
+            top: 10rem;
+            right: 3rem;
+            width: 24rem;
+            height: 48rem;
+          }
+        }
+
+        &.blue-pic-container--4 {
+          width: 22rem;
+          height: 12rem;
+          bottom: 1rem;
+          left: 10%;
+
+          &.xs-device {
+            bottom: -1.5rem;
+            width: 26rem;
+            height: 14rem;
+          }
+
+          &.s-device {
+            bottom: 4rem !important;
+          }
+
+          &.sm-device {
+            bottom: -1rem !important;
+          }
+
+          &.m-device {
+            bottom: 4rem !important;
+            width: 40rem;
+            height: 20rem;
+          }
+
+          &.xl-device {
+            bottom: 5rem !important;
+            left: 2%;
+            width: 58rem;
+            height: 33rem;
+          }
+
+          &.web {
+            bottom: 3rem !important;
+            left: 5%;
+            width: 37rem;
+            height: 17rem;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .blue-section-video {
+        top: 43%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 26rem;
+        height: 20rem;
+
+        video {
+          width: 100%;
+          height: 100%;
+        }
+
+        &.xs-device {
+          top: 40%;
+          width: 34rem;
+          height: 30rem;
+        }
+
+        &.m-device {
+          width: 55rem;
+        }
+
+        &.xl-device {
+          width: 75rem;
+          height: 32rem;
+        }
+
+        &.web {
+          top: 50%;
+          width: 38rem;
+          height: 28rem;
+        }
+      }
     }
   }
 }
