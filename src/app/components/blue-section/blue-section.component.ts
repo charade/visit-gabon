@@ -89,6 +89,7 @@ export class BlueSectionComponent
     pics.forEach((pic, index) => {
       tl.from(pic, {
         ease: 'expo.in',
+        delay: 0.1,
         width:
           this.blueSectionPic[index].animationDirection ===
             PicAnimationDirection.Width && 0,
@@ -98,7 +99,7 @@ export class BlueSectionComponent
         scrollTrigger: {
           trigger: pic,
           start: 'top 97%',
-          end: 'top 97%',
+          end: 'top 95%',
           scrub: 1.5,
         },
       });

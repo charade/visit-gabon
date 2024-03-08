@@ -47,12 +47,12 @@
       height: 160vh;
       position: relative;
       z-index: 2;
-      // border: 3px solid red;
 
       & > * {
         position: absolute;
-
         z-index: 2;
+        border-radius: 3px;
+        overflow: hidden;
 
         &.blue-pic-container--0 {
           width: 13rem;
@@ -151,8 +151,9 @@
 
           &.web {
             top: 75%;
-            width: 47rem;
-            height: 17rem;
+            left: 64%;
+            width: 43rem;
+            height: 25rem;
           }
         }
 
@@ -226,7 +227,7 @@
 
           &.web {
             bottom: 3rem !important;
-            left: 5%;
+            left: 8%;
             width: 37rem;
             height: 17rem;
           }
@@ -238,6 +239,7 @@
           object-fit: cover;
         }
       }
+
       .blue-section-video {
         top: 43%;
         left: 50%;

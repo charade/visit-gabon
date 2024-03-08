@@ -19,7 +19,12 @@ export class GreenSectionComponent
   @Input() animationTimeline: gsap.core.Timeline;
   UserAgent = UserAgent;
 
-  readonly greenPics = [
+  readonly greenPics: {
+    src: string;
+    alt: string;
+    animationDuration: string;
+    scaleX?: number;
+  }[] = [
     {
       src: '/assets/pics/g-section/nyonie.jpg',
       alt: 'parc nyonie',
@@ -152,12 +157,14 @@ export class GreenSectionComponent
     img: HTMLImageElement,
     newSrc: string
   ): void {
-    gsap
-      .timeline()
-      .fromTo(
-        img,
-        { scaleX: 3, ease: 'expo.out', opacity: 0.7 },
-        { opacity: 1, scale: 1, attr: { src: `${newSrc}` }, ease: 'expo.out' }
-      );
+    gsap.timeline().fromTo(
+      img,
+      {
+        scaleY: 2.5,
+        ease: 'expo.out',
+        opacity: 0.4,
+      },
+      { opacity: 1, scale: 1, attr: { src: `${newSrc}` }, ease: 'expo.out' }
+    );
   }
 }

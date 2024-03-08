@@ -251,10 +251,11 @@
             *ngFor="let pic of greenPics; let index = index"
             class="green-section-second-content-parcs-explore"
             (click)="
-              onSelectGreenSectionSecondContentBg(
-                greenSectionSecondContentBg,
-                pic.src
-              )
+              !greenSectionSecondContentBg.src.includes(pic.src) &&
+                onSelectGreenSectionSecondContentBg(
+                  greenSectionSecondContentBg,
+                  pic.src
+                )
             "
           >
             <img
