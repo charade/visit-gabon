@@ -83,7 +83,7 @@ export class GreenSectionComponent
           trigger: '.green-section-first-content',
           start: 'top 43%',
           end: 'top 43%',
-          scrub: 3,
+          scrub: 2,
         },
       })
       .from('.green-section-first-content-species-description-content', {
@@ -94,7 +94,7 @@ export class GreenSectionComponent
           trigger: '.green-section-first-content',
           start: 'top 20%',
           end: 'top 20%',
-          scrub: 3,
+          scrub: 2,
         },
       })
       .from('.green-section-first-content-species-description-content > h3', {
@@ -105,7 +105,7 @@ export class GreenSectionComponent
           trigger: '.green-section-first-content',
           start: 'top 20%',
           end: 'top 20%',
-          scrub: 3,
+          scrub: 2,
         },
       });
 
@@ -121,7 +121,7 @@ export class GreenSectionComponent
         trigger: '.green-section-first-content',
         start: 'top -3%',
         end: 'top -5%',
-        scrub: 3,
+        scrub: 2,
       },
     });
 
@@ -135,7 +135,7 @@ export class GreenSectionComponent
           trigger: '.green-section-second-content',
           start: 'top 60%',
           end: 'top 60%',
-          scrub: 3,
+          scrub: 2,
         },
       })
       .from('.green-section-second-content-bg', {
@@ -143,8 +143,8 @@ export class GreenSectionComponent
       })
       .from('.green-section-second-content-explore', {
         y: 30,
-        ease: 'sine.in',
         opacity: 0,
+        ease: 'sine.in',
       });
   }
 

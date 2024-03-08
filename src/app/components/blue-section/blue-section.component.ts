@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'blue-section',
@@ -21,17 +22,17 @@ export class BlueSectionComponent
   }
 
   #enteringBlueSection(): gsap.core.Timeline {
-    return gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: 'section.blue-section',
-          start: 'top 15%',
-          end: 'top 15%',
-          scrub: 3,
-        },
-      })
-      .to('.blue-section-container', {
-        opacity: 1,
-      });
+    const tl = gsap.timeline();
+
+    tl.to('.blue-section-catch-phrase', {
+      scrollTrigger: {
+        trigger: '.blue-section-container',
+        start: 'top 20%',
+        end: 'bottom bottom',
+        pin: '.blue-section-catch-phrase',
+      },
+    });
+
+    return tl;
   }
 }

@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import gsap from 'gsap';
 import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
 @Component({
   selector: 'yellow-section',
