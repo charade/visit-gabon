@@ -90,6 +90,7 @@ export class BlueSectionComponent
       tl.from(pic, {
         ease: 'expo.in',
         delay: 0.1,
+        scale: 2,
         width:
           this.blueSectionPic[index].animationDirection ===
             PicAnimationDirection.Width && 0,

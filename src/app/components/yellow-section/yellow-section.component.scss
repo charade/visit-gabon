@@ -1,19 +1,19 @@
 :host {
   display: block;
-  height: 100vh;
 
   .yellow-section-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100%;
-    background-color: #fff;
-    overflow: hidden;
+    overflow-y: scroll;
+    clip-path: url(#yellow-section-bg);
 
     .yellow-section-catch-phrase-container {
       position: absolute;
       top: 0.5rem;
       left: 1rem;
-      z-index: 5;
+      z-index: 6;
       height: 30rem;
       font-size: 5rem;
       font-family: "EasyNovember";
@@ -55,41 +55,24 @@
       }
     }
 
-    .yellow-section-background-img {
-      width: 100%;
-      height: 100%;
-      background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg"),
-        url("/assets/pics/yellow-section/coucher_soleil_1.jpg"),
-        url("/assets/pics/yellow-section/coucher-soleil.jpg"),
-        url("/assets/pics/yellow-section/coucher_soleil_peche.jpg"),
-        url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg"),
-        url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg"),
-        url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
-
-      -moz-background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg"),
-        url("/assets/pics/yellow-section/coucher_soleil_1.jpg"),
-        url("/assets/pics/yellow-section/coucher-soleil.jpg"),
-        url("/assets/pics/yellow-section/coucher_soleil_peche.jpg"),
-        url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg"),
-        url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg"),
-        url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
-
-      background-size: cover;
-      background-repeat: no-repeat;
-      clip-path: url(#yellow-section-bg);
-      // animation: yellowSectionBgAnim 29s ease infinite alternate-reverse;
-      transition-delay: 3s;
-      transition-duration: 5s;
-    }
-
     .yellow-section-bg-clipper {
       position: absolute;
-      right: 0;
-      bottom: 0;
+      top: 0;
+      left: 0;
       z-index: 5;
-      height: 70%;
+      height: 100vh;
       width: 100%;
-      padding-top: 30rem;
+
+      rect {
+        width: 100%;
+        height: 100%;
+        fill: #fff;
+
+        &#mask-rect {
+          mask: url(#yellow-section-mask);
+          -webkit-mask: url(#yellow-section-mask);
+        }
+      }
 
       path {
         transform: scale(0.06) translate(-130%, -10%);
@@ -114,100 +97,13 @@
         transform: scale(0.13) translate(-95%, -18%);
       }
       &.web path {
-        transform: scale(0.06) translate(50%, -8%);
+        transform: scale(0.075, 0.05) translate(-28%, 545%);
       }
+    }
+
+    .yellow-section-background-pic {
+      width: 100%;
+      height: 100vh;
     }
   }
 }
-
-@keyframes yellowSectionBgAnim {
-  0% {
-    background-position: center left;
-    background-image: url("/assets/pics/yellow-section/coucher_soleil_1.jpg");
-    transform: scale(1);
-  }
-
-  20% {
-    background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg");
-  }
-
-  40% {
-    background-position: 100% center;
-    background-image: url("/assets/pics/yellow-section/coucher_soleil_peche.jpg");
-  }
-
-  60% {
-    background-image: url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg");
-  }
-
-  80% {
-    background-image: url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg");
-  }
-
-  100% {
-    background-position: center right;
-    background-image: url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
-  }
-}
-
-@-webkit-keyframes yellowSectionBgAnim {
-  0% {
-    background-position: bottom left;
-    background-image: url("/assets/pics/yellow-section/coucher_soleil_1.jpg");
-  }
-
-  20% {
-    transform: scale(0.9);
-    background-image: url("/assets/pics/yellow-section/coucher-soleil.jpg");
-  }
-
-  40% {
-    background-position: 100% center;
-    background-image: url("/assets/pics/yellow-section/coucher_soleil_peche.jpg");
-  }
-
-  60% {
-    transform: scale(1);
-    background-image: url("/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg");
-  }
-
-  80% {
-    background-position: center 75%;
-    background-image: url("/assets/pics/yellow-section/coucher-soleil-yeux.jpg");
-  }
-
-  100% {
-    transform: scale(1.1);
-    background-image: url("/assets/pics/yellow-section/tortue-coucher-soeil.jpg");
-  }
-}
-
-//for blue section
-
-// @keyframes pathAnim {
-//   0% {
-//     d: path(
-//       "M 0,1400 L 0,262 C 63.13237143914171,212.6840794179307 126.26474287828341,163.36815883586138 180,187 C 233.7352571217166,210.63184116413862 278.0733999260081,307.21144407448514 334,324 C 389.9266000739919,340.78855592551486 457.44165741768404,277.78606486619805 507,262 C 556.558342582316,246.21393513380195 588.1599704032557,277.64429646072267 635,272 C 681.8400295967443,266.35570353927733 743.9184609692934,223.63674929091133 793,231 C 842.0815390307066,238.36325070908867 878.1661857195708,295.808706375632 936,314 C 993.8338142804292,332.191293624368 1073.416796152423,311.1284252065607 1137,267 C 1200.583203847577,222.87157479343935 1248.1666296707363,155.67759279812554 1296,151 C 1343.8333703292637,146.32240720187446 1391.9166851646319,204.16120360093723 1440,262 L 1440,1400 L 0,1400 Z"
-//     );
-//   }
-//   25% {
-//     d: path(
-//       "M 0,1400 L 0,262 C 65.8015538290788,210.7150573436922 131.6031076581576,159.4301146873844 178,148 C 224.3968923418424,136.5698853126156 251.3891231964484,164.99459859415464 306,177 C 360.6108768035516,189.00540140584536 442.84039955604885,184.591490935997 500,227 C 557.1596004439511,269.408509064003 589.2492785793563,358.63943766185724 643,366 C 696.7507214206437,373.36056233814276 772.162486126526,298.85075841657414 821,228 C 869.837513873474,157.14924158342586 892.1007769145393,89.95752867184609 945,144 C 997.8992230854607,198.0424713281539 1081.4344062153164,373.31912689604144 1140,375 C 1198.5655937846836,376.68087310395856 1232.1615982241954,204.76596374398815 1278,157 C 1323.8384017758046,109.23403625601185 1381.9192008879022,185.61701812800592 1440,262 L 1440,1400 L 0,1400 Z"
-//     );
-//   }
-//   50% {
-//     d: path(
-//       "M 0,1400 L 0,262 C 63.2858798865458,333.17084720680725 126.5717597730916,404.34169441361456 186,354 C 245.4282402269084,303.65830558638544 300.99884079417933,131.80406955234923 347,144 C 393.00115920582067,156.19593044765077 429.4328770501912,352.44202737698856 475,384 C 520.5671229498088,415.55797262301144 575.269651005056,282.42782093969663 632,262 C 688.730348994944,241.5721790603034 747.4885189295844,333.8466888642249 804,309 C 860.5114810704156,284.1533111357751 914.7762732766063,142.18542360340362 963,140 C 1011.2237267233937,137.81457639659638 1053.4063879639905,275.4116167221606 1112,301 C 1170.5936120360095,326.5883832778394 1245.5981748674312,240.1681095079541 1303,215 C 1360.4018251325688,189.8318904920459 1400.2009125662844,225.91594524602294 1440,262 L 1440,1400 L 0,1400 Z"
-//     );
-//   }
-//   75% {
-//     d: path(
-//       "M 0,1400 L 0,262 C 52.399457393020086,212.02520656061165 104.79891478604017,162.05041312122333 155,195 C 205.20108521395983,227.94958687877667 253.20379824885936,343.82355407571833 310,388 C 366.79620175114064,432.17644592428167 432.3858922185225,404.65537057590336 485,375 C 537.6141077814775,345.34462942409664 577.2526328770504,313.5549636206684 632,322 C 686.7473671229496,330.4450363793316 756.6035762732765,379.12477494142314 817,344 C 877.3964237267235,308.87522505857686 928.3330620298434,189.94593661363913 984,176 C 1039.6669379701566,162.05406338636087 1100.0641756073499,253.0914786040202 1144,310 C 1187.9358243926501,366.9085213959798 1215.4102355407572,389.68814897027994 1262,376 C 1308.5897644592428,362.31185102972006 1374.2948822296214,312.15592551486003 1440,262 L 1440,1400 L 0,1400 Z"
-//     );
-//   }
-//   100% {
-//     d: path(
-//       "M 0, 700 L 0,262 C 63.13237143914171,212.6840794179307 126.26474287828341,163.36815883586138 180,187 C 233.7352571217166,210.63184116413862 278.0733999260081,307.21144407448514 334,324 C 389.9266000739919,340.78855592551486 457.44165741768404,277.78606486619805 507,262 C 556.558342582316,246.21393513380195 588.1599704032557,277.64429646072267 635,272 C 681.8400295967443,266.35570353927733 743.9184609692934,223.63674929091133 793,231 C 842.0815390307066,238.36325070908867 878.1661857195708,295.808706375632 936,314 C 993.8338142804292,332.191293624368 1073.416796152423,311.1284252065607 1137,267 C 1200.583203847577,222.87157479343935 1248.1666296707363,155.67759279812554 1296,151 C 1343.8333703292637,146.32240720187446 1391.9166851646319,204.16120360093723 1440,262 L 1440,1400 L 0,1400 Z"
-//     );
-//   }
-// }
