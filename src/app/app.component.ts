@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import gsap from 'gsap';
@@ -10,6 +10,9 @@ import { YellowSectionComponent } from './components/yellow-section/yellow-secti
 import { BlueSectionComponent } from './components/blue-section/blue-section.component';
 import { IconEnum } from './utils/icons-enum';
 import { IconComponent } from './icon/icon.component';
+import { OutroSectionComponent } from './components/outro-section/outro-section.component';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
@@ -22,6 +25,7 @@ import { IconComponent } from './icon/icon.component';
     YellowSectionComponent,
     BlueSectionComponent,
     IconComponent,
+    OutroSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -30,8 +34,4 @@ export class AppComponent {
   title = 'visit-gabon';
   mainAnimationTimeline = gsap.timeline();
   IconEnum = IconEnum;
-
-  constructor() {
-    gsap.registerPlugin(ScrollTrigger);
-  }
 }

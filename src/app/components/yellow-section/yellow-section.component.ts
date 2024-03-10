@@ -44,26 +44,31 @@ export class YellowSectionComponent
   ];
 
   ngAfterViewInit(): void {
-    this.#pinningMaskOnEnter();
+    this.animationTimeline.add(this.#pinningMaskOnEnter());
     this.animationTimeline.add(this.#pinImageOnScroll());
   }
 
-  #pinningMaskOnEnter(): void {
-    ScrollTrigger.create({
-      trigger: '.yellow-section-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: '.yellow-section-bg-clipper',
-      scrub: true,
-    });
-
-    ScrollTrigger.create({
-      trigger: '.yellow-section-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: '.yellow-section-catch-phrase-container',
-      scrub: true,
-    });
+  #pinningMaskOnEnter(): gsap.core.Timeline {
+    return gsap
+      .timeline()
+      .to('.yellow-section-bg-clipper', {
+        scrollTrigger: {
+          trigger: '.yellow-section-container',
+          start: 'top top',
+          end: 'bottom bottom',
+          pin: '.yellow-section-bg-clipper',
+          scrub: 3,
+        },
+      })
+      .to('.yellow-section-catch-phrase-container', {
+        scrollTrigger: {
+          trigger: '.yellow-section-container',
+          start: 'top top',
+          end: 'bottom bottom',
+          pin: '.yellow-section-catch-phrase-container',
+          scrub: 3,
+        },
+      });
   }
 
   #pinImageOnScroll(): gsap.core.Timeline {
@@ -73,7 +78,7 @@ export class YellowSectionComponent
       start: 'top top',
       end: 'bottom bottom',
       pin: '.sunset-pic--0',
-      scrub: true,
+      scrub: 3,
     });
 
     //pinning others pics on enter viewport
@@ -85,12 +90,11 @@ export class YellowSectionComponent
     sunsetPics.forEach((pic, index) => {
       if (index) {
         tl.from(`.sunset-pic--${index} img`, {
-          scale: 1.08,
           scrollTrigger: {
             trigger: pic,
             start: 'top 10%',
             end: 'top 10%',
-            scrub: 2,
+            scrub: 1.3,
           },
         }).to(pic, {
           scrollTrigger: {
@@ -98,7 +102,7 @@ export class YellowSectionComponent
             start: 'top top',
             end: () => pic.parentElement.scrollHeight * 1.4,
             pin: true,
-            scrub: 2,
+            scrub: 1.3,
           },
         });
       }

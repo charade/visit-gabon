@@ -7,8 +7,8 @@
     flex-direction: column;
     width: 100%;
     overflow-y: scroll;
-    clip-path: url(#yellow-section-bg);
-    height: 499vh;
+    overflow-x: hidden;
+    height: 500vh;
 
     .yellow-section-catch-phrase-container {
       position: absolute;
@@ -58,12 +58,13 @@
 
     .yellow-section-bg-clipper {
       position: absolute;
-      top: -0.8rem;
+      top: 0;
       left: 0;
       z-index: 5;
-      height: 101vh;
+      height: 100vh;
       width: 100%;
       overflow: hidden;
+      padding: 0;
 
       rect {
         width: 100%;
@@ -77,26 +78,26 @@
       }
 
       path {
-        transform: scale(0.06) translate(-130%, -10%);
+        transform: scale(0.07) translate(30%, 200%);
       }
 
       &.xs-device path {
-        transform: scale(0.06) translate(-180%, 10%);
+        transform: scale(0.08, 0.11) translate(10%, 10%);
       }
 
       &.s-device path {
-        transform: scale(0.07) translate(-180%, 50%);
+        transform: scale(0.07, 0.11) translate(18%, 50%);
       }
 
       &.m-device path {
-        transform: scale(0.082) translate(-80%, 80%);
+        transform: scale(0.09, 0.1) translate(-85%, 80%);
       }
 
       &.l-device path {
         transform: scale(0.1) translate(-75%, 60%);
       }
       &.xl-device path {
-        transform: scale(0.13) translate(-95%, -18%);
+        transform: scale(0.12) translate(-95%, -18%);
       }
       &.web path {
         transform: scale(0.075, 0.05) translate(-28%, 545%);
@@ -112,6 +113,11 @@
         object-fit: cover;
         height: 100%;
       }
+    }
+
+    .pin-spacer {
+      left: 0;
+      width: 100vw;
     }
   }
 }

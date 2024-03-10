@@ -2,7 +2,6 @@ import { AfterViewInit, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 enum PicAnimationDirection {
   Width = 1,
@@ -55,30 +54,14 @@ export class BlueSectionComponent
   }
 
   #enteringBlueSection(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    tl.to('.blue-section-catch-phrase', {
+    return gsap.timeline().to('.blue-section-catch-phrase', {
       scrollTrigger: {
         trigger: '.blue-section-container',
-        start: 'top 20%',
-        end: 'bottom 66%',
+        start: 'top top',
+        end: 'bottom bottom',
         pin: '.blue-section-catch-phrase',
       },
     });
-
-    tl.to('.blue-section-catch-phrase', {
-      scale: 0.6,
-      fontWeight: 100,
-      ease: 'sin.inOut',
-      scrollTrigger: {
-        trigger: '.blue-section-container',
-        start: 'bottom 72%',
-        end: 'bottom 72%',
-        scrub: 2,
-      },
-    });
-
-    return tl;
   }
 
   #animateBlueSectionPics(): gsap.core.Timeline {

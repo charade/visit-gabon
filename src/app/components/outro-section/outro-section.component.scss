@@ -1,0 +1,108 @@
+:host {
+  width: 100%;
+
+  .outro-section-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    & > * {
+      position: absolute;
+    }
+    .outro-catch-phrase {
+      left: 0;
+      top: 25%;
+      transform: translateY(-50%);
+      width: 100%;
+      font-size: 5rem;
+      font-family: KhandSemiBold;
+      line-height: 6rem;
+      text-align: center;
+      color: #605f5f6e;
+      z-index: 3;
+
+      &.yellow-masked {
+        z-index: 4;
+        color: rgb(255, 234, 4);
+        mask: url(#outro-yellow-mask);
+        -webkit-mask: url(#outro-yellow-mask);
+      }
+
+      &.blue-masked {
+        z-index: 4;
+        color: rgb(60, 145, 230);
+        mask: url(#outro-blue-mask);
+        -webkit-mask: url(#outro-blue-mask);
+      }
+
+      &.xs-device {
+        top: 17rem;
+        font-size: 7rem;
+      }
+
+      &.m-device {
+        font-size: 10rem;
+        line-height: 9rem;
+      }
+
+      &.xl-device {
+        font-size: 12rem;
+        line-height: 10rem;
+      }
+    }
+
+    .outro-yellow-mask-container {
+      top: 14%;
+      left: 50%;
+      width: 100%;
+      height: 30rem;
+      padding: 1rem;
+      transform: translateX(-50%);
+
+      circle {
+        stroke-width: 1px;
+        fill: #fff;
+
+        //yellow circle
+        &.outer-section-yellow-circle {
+          &.sm-device {
+            transform: translateX(10%);
+          }
+
+          &.m-device {
+            transform: translateX(20%);
+          }
+          &.web {
+            transform: translate(27%);
+          }
+        }
+
+        //blue circle
+        &.outer-section-blue-circle {
+          &.xs-device {
+            transform: translateX(15%);
+          }
+
+          &.s-device {
+            transform: translateX(18%);
+          }
+
+          &.sm-device {
+            transform: translateX(24%);
+          }
+
+          &.m-device {
+            transform: translate(43%, 8%);
+          }
+
+          &.xl-device {
+            transform: translateX(50%);
+          }
+          &.web {
+            transform: translate(47%);
+          }
+        }
+      }
+    }
+  }
+}

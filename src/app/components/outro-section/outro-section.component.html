@@ -1,0 +1,71 @@
+<div class="outro-section-container">
+  <h2
+    class="outro-catch-phrase"
+    [ngClass]="{
+      'xs-device': isDeviceXS(),
+      'm-device': isDeviceM(),
+      'xl-device': isDeviceXL()
+    }"
+  >
+    Faites le plein <br />de couleurs
+  </h2>
+  <h2
+    class="outro-catch-phrase yellow-masked"
+    [ngClass]="{
+      'xs-device': isDeviceXS(),
+      'm-device': isDeviceM(),
+      'xl-device': isDeviceXL()
+    }"
+  >
+    Faites le plein <br />de couleurs
+  </h2>
+
+  <h2
+    class="outro-catch-phrase blue-masked"
+    [ngClass]="{
+      'xs-device': isDeviceXS(),
+      'm-device': isDeviceM(),
+      'xl-device': isDeviceXL()
+    }"
+  >
+    Faites le plein <br />de couleurs
+  </h2>
+
+  <svg class="outro-yellow-mask-container">
+    <mask id="outro-yellow-mask" x="0" y="0" width="100%" height="100%">
+      <circle
+        class="outer-section-yellow-circle"
+        [ngClass]="{
+          'xs-device': isDeviceXS(),
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
+          'm-device': isDeviceM(),
+          'l-device': isDeviceL(),
+          'xl-device': isDeviceXL(),
+          web: isDeviceWeb()
+        }"
+        cx="80"
+        cy="100"
+        r="90"
+      />
+    </mask>
+
+    <mask id="outro-blue-mask" x="0" y="0" width="100%" height="100%">
+      <circle
+        class="outer-section-blue-circle"
+        [ngClass]="{
+          'xs-device': isDeviceXS(),
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
+          'm-device': isDeviceM(),
+          'l-device': isDeviceL(),
+          'xl-device': isDeviceXL(),
+          web: isDeviceWeb()
+        }"
+        cx="250"
+        cy="40"
+        r="70"
+      />
+    </mask>
+  </svg>
+</div>
