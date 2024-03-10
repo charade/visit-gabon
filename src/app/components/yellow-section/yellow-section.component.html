@@ -1232,10 +1232,14 @@
     </defs>
     <rect id="mask-rect" x="0" y="0" y="0" width="100%" height="100%" />
   </svg>
-  <img
+  <div
     *ngFor="let pic of yellowSectionPics; let index = index"
-    class="yellow-section-background-pic"
-    [src]="pic.src"
-    [alt]="pic.alt"
-  />
+    [class]="'yellow-section-background-pic' + ' ' + 'sunset-pic--' + index"
+  >
+    <img
+      [src]="pic.src"
+      [alt]="pic.alt"
+      [style.object-position]="pic.backgroundPosition"
+    />
+  </div>
 </div>

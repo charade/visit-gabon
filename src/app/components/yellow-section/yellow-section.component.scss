@@ -8,6 +8,7 @@
     width: 100%;
     overflow-y: scroll;
     clip-path: url(#yellow-section-bg);
+    height: 499vh;
 
     .yellow-section-catch-phrase-container {
       position: absolute;
@@ -57,11 +58,12 @@
 
     .yellow-section-bg-clipper {
       position: absolute;
-      top: 0;
+      top: -0.8rem;
       left: 0;
       z-index: 5;
-      height: 100vh;
+      height: 101vh;
       width: 100%;
+      overflow: hidden;
 
       rect {
         width: 100%;
@@ -102,8 +104,14 @@
     }
 
     .yellow-section-background-pic {
-      width: 100%;
-      height: 100vh;
+      height: 99vh;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+      }
     }
   }
 }
