@@ -49,7 +49,7 @@ export class BlueSectionComponent
     },
   ];
   ngAfterViewInit(): void {
-    this.animationTimeline.add(this.#enteringBlueSection());
+    // this.animationTimeline.add(this.#enteringBlueSection());
     this.animationTimeline.add(this.#animateBlueSectionPics());
   }
 
@@ -60,6 +60,8 @@ export class BlueSectionComponent
         start: 'top top',
         end: 'bottom bottom',
         pin: '.blue-section-catch-phrase',
+        pinType: 'fixed',
+        pinSpacing: false,
       },
     });
   }

@@ -51,13 +51,16 @@ export class YellowSectionComponent
   #pinningMaskOnEnter(): gsap.core.Timeline {
     return gsap
       .timeline()
-      .to('.yellow-section-bg-clipper', {
+      .to('.yellow-section-bg-clipper-container', {
         scrollTrigger: {
           trigger: '.yellow-section-container',
           start: 'top top',
           end: 'bottom bottom',
-          pin: '.yellow-section-bg-clipper',
-          scrub: 3,
+          pin: '.yellow-section-bg-clipper-container',
+          scrub: true,
+          pinType: 'fixed',
+          pinSpacing: false,
+          anticipatePin: 1,
         },
       })
       .to('.yellow-section-catch-phrase-container', {
@@ -66,7 +69,9 @@ export class YellowSectionComponent
           start: 'top top',
           end: 'bottom bottom',
           pin: '.yellow-section-catch-phrase-container',
-          scrub: 3,
+          scrub: true,
+          pinType: 'fixed',
+          pinSpacing: false,
         },
       });
   }
@@ -78,7 +83,9 @@ export class YellowSectionComponent
       start: 'top top',
       end: 'bottom bottom',
       pin: '.sunset-pic--0',
-      scrub: 3,
+      scrub: true,
+      pinType: 'fixed',
+      pinSpacing: false,
     });
 
     //pinning others pics on enter viewport

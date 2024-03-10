@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import gsap from 'gsap';
@@ -30,8 +30,11 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'visit-gabon';
   mainAnimationTimeline = gsap.timeline();
   IconEnum = IconEnum;
+  ngOnInit(): void {
+    window.addEventListener('scroll', ScrollTrigger.update);
+  }
 }
