@@ -1,5 +1,13 @@
 <div class="green-section-intro-container">
-  <div class="green-section-intro-clipped-video">
+  <div
+    class="green-section-intro-clipped-video"
+    [ngClass]="{
+      'sm-device': isDeviceSm(),
+      'm-device': isDeviceM(),
+      'l-device': isDeviceL(),
+      'xl-device': isDeviceXL()
+    }"
+  >
     <div class="intro-clipped-video">
       <video autoplay playsinline [muted]="true" loop preload>
         <source src="/assets/videos/gabon_green.mp4" />
