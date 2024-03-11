@@ -413,6 +413,10 @@
           width: 20rem;
           overflow: hidden;
 
+          &.xs-device {
+            margin: 1rem 0;
+          }
+
           &.s-device {
             height: 4.5rem;
             width: 27rem;
