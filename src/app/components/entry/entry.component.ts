@@ -17,8 +17,6 @@ import SplitType from 'split-type';
   styleUrls: ['./entry.component.scss'],
 })
 export class EntryComponent implements AfterViewInit {
-  @Input() animationTimeline: gsap.core.Timeline;
-
   #viewContainerRef = inject(ViewContainerRef).element.nativeElement;
 
   ngAfterViewInit(): void {
@@ -30,7 +28,7 @@ export class EntryComponent implements AfterViewInit {
         duration: 1,
         delay: 0.5,
       });
-    this.animationTimeline.add(entryTimelineAnimation);
+
     this.#animateEntryDescription();
   }
 
@@ -39,19 +37,18 @@ export class EntryComponent implements AfterViewInit {
       '.blue-screen-description'
     );
 
+    const tl = gsap.timeline();
+
     descriptionContents.forEach((description, index) => {
       const splittedText = new SplitType(description as HTMLElement, {
         types: 'chars',
       });
 
-      const tl = gsap
-        .timeline()
-        .from(description, { opacity: 0 })
-        .from(splittedText.chars, {
-          opacity: 0,
-          x: -8,
-          stagger: 0.1,
-        });
+      tl.from(description, { opacity: 0 }).from(splittedText.chars, {
+        opacity: 0,
+        x: -8,
+        stagger: 0.1,
+      });
 
       if (index < 7) {
         tl.to(
@@ -65,16 +62,12 @@ export class EntryComponent implements AfterViewInit {
           '+=0.8'
         );
       }
-
-      this.animationTimeline.add(tl);
     });
 
-    this.animationTimeline
-      .to(this.#viewContainerRef, {
-        height: 0,
-        duration: 0.5,
-        delay: 1,
-      })
-      .to(this.#viewContainerRef, { opacity: 0 }, '-=0.6');
+    tl.to(this.#viewContainerRef, {
+      height: 0,
+      duration: 0.5,
+      delay: 1,
+    }).to(this.#viewContainerRef, { opacity: 0 }, '-=0.6');
   }
 }
