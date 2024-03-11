@@ -32,7 +32,6 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class AppComponent implements OnInit {
   title = 'visit-gabon';
-  mainAnimationTimeline = gsap.timeline();
   IconEnum = IconEnum;
   ngOnInit(): void {
     window.addEventListener('scroll', ScrollTrigger.update);

@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 @Component({
   selector: 'yellow-section',
   standalone: true,
@@ -14,8 +13,6 @@ export class YellowSectionComponent
   extends MediaBreakPointsObserver
   implements AfterViewInit
 {
-  @Input() animationTimeline: gsap.core.Timeline;
-
   readonly yellowSectionPics = [
     {
       src: '/assets/pics/yellow-section/coucher-soleil-yeux.jpg',
@@ -40,77 +37,54 @@ export class YellowSectionComponent
   ];
 
   ngAfterViewInit(): void {
-    this.animationTimeline.add(this.#pinningMaskOnEnter());
-    this.animationTimeline.add(this.#pinImageOnScroll());
+    this.#pinningMaskOnEnter();
+    this.#pinImageOnScroll();
   }
 
-  #pinningMaskOnEnter(): gsap.core.Timeline {
-    return gsap
-      .timeline()
-      .to('.yellow-section-bg-clipper-container', {
-        scrollTrigger: {
-          trigger: '.yellow-section-container',
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: '.yellow-section-bg-clipper-container',
-          scrub: true,
-          pinType: 'fixed',
-          pinSpacing: false,
-          anticipatePin: 1,
-        },
-      })
-      .to('.yellow-section-catch-phrase-container', {
-        scrollTrigger: {
-          trigger: '.yellow-section-container',
-          start: 'top top',
-          end: 'bottom bottom',
-          pin: '.yellow-section-catch-phrase-container',
-          scrub: true,
-          pinType: 'fixed',
-          pinSpacing: false,
-        },
-      });
-  }
-
-  #pinImageOnScroll(): gsap.core.Timeline {
-    //pinning first pic on enter section;
-    ScrollTrigger.create({
-      trigger: '.yellow-section-container',
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: '.sunset-pic--0',
-      scrub: true,
-      pinType: 'fixed',
-      pinSpacing: false,
+  #pinningMaskOnEnter(): void {
+    gsap.to('.yellow-section-bg-clipper-container', {
+      scrollTrigger: {
+        trigger: '.yellow-section-bg-clipper-container',
+        start: 'top top',
+        endTrigger: '.yellow-section-container',
+        end: 'bottom bottom',
+        pin: '.yellow-section-bg-clipper-container',
+        scrub: true,
+        pinSpacing: false,
+        pinType: 'fixed',
+      },
     });
 
+    gsap.to('.yellow-section-catch-phrase-container', {
+      scrollTrigger: {
+        trigger: '.yellow-section-container',
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: '.yellow-section-catch-phrase-container',
+        scrub: true,
+        pinSpacing: false,
+        pinType: 'fixed',
+      },
+    });
+  }
+
+  #pinImageOnScroll(): void {
     //pinning others pics on enter viewport
-    const tl = gsap.timeline();
-    const sunsetPics = document.querySelectorAll(
+    const sunsetPics: HTMLLIElement[] = gsap.utils.toArray(
       '.yellow-section-background-pic'
     );
 
-    sunsetPics.forEach((pic, index) => {
-      if (index) {
-        tl.from(`.sunset-pic--${index} img`, {
-          scrollTrigger: {
-            trigger: pic,
-            start: 'top 10%',
-            end: 'top 10%',
-            scrub: 1.3,
-          },
-        }).to(pic, {
-          scrollTrigger: {
-            trigger: `.sunset-pic--${index}`,
-            start: 'top top',
-            end: () => pic.parentElement.scrollHeight * 1.4,
-            pin: true,
-            scrub: 1.3,
-          },
-        });
-      }
+    sunsetPics.forEach((pic) => {
+      gsap.to(pic, {
+        scrollTrigger: {
+          trigger: pic,
+          start: 'top top',
+          endTrigger: '.yellow-section-container',
+          end: 'bottom bottom',
+          pin: true,
+          scrub: 1.3,
+        },
+      });
     });
-
-    return tl;
   }
 }

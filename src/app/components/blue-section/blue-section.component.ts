@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
@@ -19,8 +19,6 @@ export class BlueSectionComponent
   extends MediaBreakPointsObserver
   implements AfterViewInit
 {
-  @Input() animationTimeline: gsap.core.Timeline;
-
   readonly blueSectionPic = [
     {
       src: '/assets/pics/b-section/baie_du_cap.jpg',
@@ -49,30 +47,16 @@ export class BlueSectionComponent
     },
   ];
   ngAfterViewInit(): void {
-    // this.animationTimeline.add(this.#enteringBlueSection());
-    this.animationTimeline.add(this.#animateBlueSectionPics());
+    this.#animateBlueSectionPics();
   }
 
-  #enteringBlueSection(): gsap.core.Timeline {
-    return gsap.timeline().to('.blue-section-catch-phrase', {
-      scrollTrigger: {
-        trigger: '.blue-section-container',
-        start: 'top top',
-        end: 'bottom bottom',
-        pin: '.blue-section-catch-phrase',
-        pinType: 'fixed',
-        pinSpacing: false,
-      },
-    });
-  }
-
-  #animateBlueSectionPics(): gsap.core.Timeline {
-    const pics = document.querySelectorAll('.blue-section-pic');
+  #animateBlueSectionPics(): void {
+    const pics: HTMLElement[] = gsap.utils.toArray('.blue-section-pic');
 
     const tl = gsap.timeline();
 
     pics.forEach((pic, index) => {
-      tl.from(pic, {
+      gsap.from(pic, {
         ease: 'expo.in',
         delay: 0.1,
         scale: 2,
@@ -91,7 +75,7 @@ export class BlueSectionComponent
       });
     });
 
-    tl.from('.blue-section-video', {
+    gsap.from('.blue-section-video', {
       width: 0,
       ease: 'expo.in',
       scrollTrigger: {
@@ -101,6 +85,5 @@ export class BlueSectionComponent
         scrub: 2,
       },
     });
-    return tl;
   }
 }

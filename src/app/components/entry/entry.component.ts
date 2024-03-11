@@ -35,7 +35,7 @@ export class EntryComponent implements AfterViewInit {
   }
 
   #animateEntryDescription(): void {
-    const descriptionContents = document.querySelectorAll(
+    const descriptionContents: HTMLElement[] = gsap.utils.toArray(
       '.blue-screen-description'
     );
 

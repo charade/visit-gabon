@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import SplitType from 'split-type';
@@ -16,7 +16,6 @@ export class GreenSectionComponent
   extends MediaBreakPointsObserver
   implements AfterViewInit
 {
-  @Input() animationTimeline: gsap.core.Timeline;
   UserAgent = UserAgent;
 
   readonly greenPics: {
@@ -58,52 +57,52 @@ export class GreenSectionComponent
   ];
 
   ngAfterViewInit(): void {
-    this.animationTimeline.add(this.#enteringGreenSectionFirstContent());
-    this.animationTimeline.add(this.#enteringGreenSectionSecondContent());
+    this.#enteringGreenSectionFirstContent();
+    this.#enteringGreenSectionSecondContent();
   }
 
-  #enteringGreenSectionFirstContent(): gsap.core.Timeline {
-    const tl = gsap
-      .timeline()
-      .from('.green-section-first-content-catch-phrase', {
-        y: -80,
-        opacity: 0,
-        delay: 0.3,
-        scrollTrigger: {
-          trigger: '.green-section-first-content',
-          start: 'top 43%',
-          end: 'top 43%',
-          scrub: 2,
-        },
-      })
-      .from('.green-section-first-content-species-description-content', {
-        height: 0,
-        stagger: 0.2,
-        delay: 0.2,
-        scrollTrigger: {
-          trigger: '.green-section-first-content',
-          start: 'top 20%',
-          end: 'top 20%',
-          scrub: 2,
-        },
-      })
-      .from('.green-section-first-content-species-description-content > h3', {
-        rotate: '-45deg',
-        y: 25,
-        ease: 'expo.inOut',
-        scrollTrigger: {
-          trigger: '.green-section-first-content',
-          start: 'top 20%',
-          end: 'top 20%',
-          scrub: 2,
-        },
-      });
+  #enteringGreenSectionFirstContent(): void {
+    gsap.from('.green-section-first-content-catch-phrase', {
+      y: -80,
+      opacity: 0,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: '.green-section-first-content',
+        start: 'top 43%',
+        end: 'top 43%',
+        scrub: 2,
+      },
+    });
+
+    gsap.from('.green-section-first-content-species-description-content', {
+      height: 0,
+      stagger: 0.2,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '.green-section-first-content',
+        start: 'top 20%',
+        end: 'top 20%',
+        scrub: 2,
+      },
+    });
+
+    gsap.from('.green-section-first-content-species-description-content > h3', {
+      rotate: '-45deg',
+      y: 25,
+      ease: 'expo.inOut',
+      scrollTrigger: {
+        trigger: '.green-section-first-content',
+        start: 'top 20%',
+        end: 'top 20%',
+        scrub: 2,
+      },
+    });
 
     const splittedText = new SplitType(
       '.green-section-first-content-species-description-content'
     );
 
-    tl.from(splittedText.words, {
+    gsap.from(splittedText.words, {
       height: 0,
       stagger: 0.9,
       duration: 1,
@@ -114,12 +113,10 @@ export class GreenSectionComponent
         scrub: 2,
       },
     });
-
-    return tl;
   }
 
-  #enteringGreenSectionSecondContent(): gsap.core.Timeline {
-    return gsap
+  #enteringGreenSectionSecondContent(): void {
+    gsap
       .timeline({
         scrollTrigger: {
           trigger: '.green-section-second-content',
