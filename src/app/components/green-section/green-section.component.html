@@ -134,8 +134,10 @@
 <div class="green-section-contents">
   <div class="green-section-first-content">
     <div
-      class="low-video-container"
+      class="green-section-rounded-video-container"
       [ngClass]="{
+        'xs-device': isDeviceXS(),
+        's-device': isDeviceS(),
         'sm-device': isDeviceSm(),
         'm-device': isDeviceM(),
         web: isDeviceWeb()
@@ -167,6 +169,8 @@
       class="green-section-first-content-catch-phrase"
       [ngClass]="{
         'xs-device': isDeviceXS(),
+        's-device': isDeviceS(),
+        'm-device': isDeviceM(),
         'xl-device': isDeviceXL(),
         web: isDeviceWeb()
       }"
@@ -175,14 +179,22 @@
     </h2>
     <h3
       class="green-section-first-content-catch-phrase"
-      [ngClass]="{ 'xl-device': isDeviceXL(), web: isDeviceWeb() }"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        's-device': isDeviceS(),
+        'sm-device': isDeviceSm(),
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
     >
       chez un leader mondial en protection de la biodiversité
     </h3>
     <div
-      class="green-section-first-content-species-description"
+      class="green-section-first-content-species-description-container"
       [ngClass]="{
         'm-device': isDeviceM(),
+        'l-device': isDeviceL(),
         'xl-device': isDeviceXL(),
         web: isDeviceWeb()
       }"
@@ -190,35 +202,73 @@
       <div
         class="green-section-first-content-species-description-content"
         [ngClass]="{
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
           'm-device': isDeviceM(),
           'xl-device': isDeviceXL(),
           web: isDeviceWeb()
         }"
       >
-        <h3>+ 800 espèces d'arbres</h3>
+        <h3
+          [ngClass]="{
+            's-device': isDeviceS(),
+            'sm-device': isDeviceSm(),
+            'm-device': isDeviceM(),
+            'xl-device': isDeviceXL(),
+            web: isDeviceWeb()
+          }"
+        >
+          + 800 espèces d'arbres
+        </h3>
       </div>
       <div
         class="green-section-first-content-species-description-content"
         [ngClass]="{
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
           'm-device': isDeviceM(),
           'xl-device': isDeviceXL(),
           web: isDeviceWeb()
         }"
       >
-        <h3>+ 600 espèces d'oiseaux</h3>
+        <h3
+          [ngClass]="{
+            's-device': isDeviceS(),
+            'sm-device': isDeviceSm(),
+            'm-device': isDeviceM(),
+            'xl-device': isDeviceXL(),
+            web: isDeviceWeb()
+          }"
+        >
+          + 600 espèces d'oiseaux
+        </h3>
       </div>
       <div
         class="green-section-first-content-species-description-content"
         [ngClass]="{
+          's-device': isDeviceS(),
+          'sm-device': isDeviceSm(),
           'm-device': isDeviceM(),
           'xl-device': isDeviceXL(),
           web: isDeviceWeb()
         }"
       >
-        <h3>+ 200 espèces de Mammifères</h3>
+        <h3
+          [ngClass]="{
+            's-device': isDeviceS(),
+            'sm-device': isDeviceSm(),
+            'm-device': isDeviceM(),
+            'xl-device': isDeviceXL(),
+            web: isDeviceWeb()
+          }"
+        >
+          + 200 espèces de Mammifères
+        </h3>
       </div>
     </div>
   </div>
+
+  <!-- green section second content -->
 
   <div class="green-section-second-content-container">
     <h2

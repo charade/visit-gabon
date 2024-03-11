@@ -228,17 +228,26 @@
       flex-direction: column;
       height: 100vh;
 
-      .low-video-container {
+      .green-section-rounded-video-container {
         position: relative;
         @include flexCentered;
         width: 15rem;
         height: 15rem;
         border: none;
         border-radius: 50%;
-        margin: 3rem 0;
+        margin-top: 1.5rem;
         align-self: center;
         box-shadow: 5px -5px 12px#00000078, -4px 5px 15px #000000d7,
           5px 20px 20px #eeebeb78;
+
+        &.xs-device {
+          width: 24rem;
+          height: 24rem;
+        }
+
+        &.s-device {
+          margin-top: 6rem;
+        }
 
         &.sm-device {
           width: 22rem;
@@ -247,9 +256,10 @@
         }
 
         &.m-device {
-          width: 30rem;
-          height: 30rem;
-          margin: 8rem;
+          width: 34rem;
+          height: 34rem;
+          margin-top: 8rem;
+          margin-bottom: 7.75rem;
         }
 
         &.web {
@@ -300,45 +310,74 @@
         text-align: center;
         margin-top: 8rem;
         color: rgb(33, 105, 33);
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 300;
         font-family: "LoversQuarrel";
 
         &.xs-device {
           font-size: 4rem;
-          margin-top: 10rem;
+          margin-top: 6rem;
         }
 
-        &.xl-device {
+        &.s-device {
+          font-size: 5rem;
+          margin-top: 7rem;
+        }
+
+        &.m-device {
           font-size: 7rem;
         }
 
+        &.xl-device {
+          font-size: 9rem;
+        }
+
         &.web {
-          font-size: 3.5rem;
-          margin-top: -1rem;
+          font-size: 5rem;
+          margin-top: 2rem;
         }
       }
 
       h3.green-section-first-content-catch-phrase {
-        font-size: 2rem;
+        font-size: 1.75rem;
         text-align: center;
         font-family: "KhandLight";
-        height: 5rem;
-        margin-bottom: 5rem;
+        height: 4rem;
+        margin-bottom: 7rem;
         color: #282a29;
 
-        &.xl-device {
+        &.xs-device {
+          font-size: 1.8rem;
+          margin-bottom: 5rem;
+        }
+
+        &.s-device {
+          font-size: 2.25rem;
+          margin-bottom: 8rem;
+        }
+
+        &.sm-device {
+          margin-top: -1rem;
+          margin-bottom: 3rem;
+        }
+
+        &.m-device {
           font-size: 3rem;
+        }
+
+        &.xl-device {
+          font-size: 4rem;
           margin-bottom: 8rem;
         }
 
         &.web {
-          font-size: 1.75rem;
-          margin-bottom: 1rem;
+          font-size: 2rem;
+          margin-top: 2rem;
+          margin-bottom: 2rem;
         }
       }
 
-      .green-section-first-content-species-description {
+      .green-section-first-content-species-description-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -352,15 +391,19 @@
           padding-left: 2rem;
         }
 
+        &.l-device {
+          margin-top: 9.5rem;
+        }
+
         &.xl-device {
-          margin-top: 8rem;
+          margin-top: 15rem;
         }
 
         &.web {
-          margin-top: 2rem;
+          margin-top: 5rem;
         }
 
-        div.green-section-first-content-species-description-content {
+        .green-section-first-content-species-description-content {
           display: flex;
           align-items: center;
           border-left: 4px solid #a0a0a0c4;
@@ -370,32 +413,57 @@
           width: 20rem;
           overflow: hidden;
 
+          &.s-device {
+            height: 4.5rem;
+            width: 27rem;
+          }
+
+          &.sm-device {
+            height: 4rem;
+          }
+
+          &.m-device {
+            width: 20rem;
+            height: 8rem;
+          }
+
+          &.xl-device {
+            height: 10rem;
+            width: 23rem;
+            margin: 0 3rem;
+          }
+
+          &.web {
+            height: 2rem;
+          }
+
           h3 {
             font-family: "KhandLight";
             font-size: 1.8rem;
             color: #6c6f6b;
             height: 100%;
             transform-origin: right top;
-          }
 
-          &.m-device {
-            margin: 0 1.5rem;
-          }
-
-          &.xl-device {
-            height: 4rem;
-            width: 23rem;
-            margin: 0 3rem;
-            h3 {
-              font-size: 2rem;
+            &.s-device {
+              font-size: 2.5rem;
             }
-          }
 
-          &.web {
-            height: 3rem;
+            &.sm-device {
+              font-size: 2.25rem;
+            }
 
-            h3 {
-              font-size: 1.75rem;
+            &.m-device {
+              font-size: 3rem;
+              text-align: center;
+            }
+
+            &.xl-device {
+              font-size: 4rem;
+              text-align: center;
+            }
+
+            &.web {
+              font-size: 2rem;
             }
           }
         }
