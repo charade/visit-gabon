@@ -5,7 +5,8 @@
       'sm-device': isDeviceSm(),
       'm-device': isDeviceM(),
       'l-device': isDeviceL(),
-      'xl-device': isDeviceXL()
+      'xl-device': isDeviceXL(),
+      web: isDeviceWeb(),
     }"
   >
     <div class="intro-clipped-video">
@@ -96,9 +97,19 @@
     >
       «Rester, c'est exister. Voyager, c'est vivre»
     </h1>
-    <h6 [ngClass]="{ 'xl-device': isDeviceXL() }">( Gustave Nadaud )</h6>
+    <h6
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        'm-device': isDeviceM(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb(),
+      }"
+    >
+      ( Gustave Nadaud )
+    </h6>
     <h5
       [ngClass]="{
+        'xs-device': isDeviceXS(),
         'm-device': isDeviceM(),
         'xl-device': isDeviceXL(),
         web: isDeviceWeb()
@@ -108,6 +119,7 @@
     </h5>
     <h3
       [ngClass]="{
+        'xs-device': isDeviceXS(),
         'm-device': isDeviceM(),
         'xl-device': isDeviceXL(),
         web: isDeviceWeb()
