@@ -18,27 +18,23 @@ export class YellowSectionComponent
 
   readonly yellowSectionPics = [
     {
-      src: '/assets/pics/yellow-section/tortue-coucher-soeil.jpg',
-      alt: 'pic 6',
+      src: '/assets/pics/yellow-section/coucher-soleil-yeux.jpg',
+      alt: 'pic 1',
     },
     {
       src: '/assets/pics/yellow-section/coucher_soleil_1.jpg',
       alt: 'pic 2',
       backgroundPosition: 'left bottom',
     },
-    {
-      src: '/assets/pics/yellow-section/coucher-soleil-yeux.jpg',
-      alt: 'pic 5',
-    },
 
     {
       src: '/assets/pics/yellow-section/coucher-de-soleil-nyonie.jpg',
-      alt: 'pic 4',
-      backgroundPosition: 'left bottom',
+      alt: 'pic 3',
+      backgroundPosition: '23% bottom',
     },
     {
       src: '/assets/pics/yellow-section/coucher-soleil.jpg',
-      alt: 'pic 1',
+      alt: 'pic 4',
       backgroundPosition: 'center 30%',
     },
   ];

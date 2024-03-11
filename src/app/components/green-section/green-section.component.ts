@@ -51,19 +51,9 @@ export class GreenSectionComponent
       animationDuration: '18.1s',
     },
     {
-      src: '/assets/pics/g-section/parc-mayumba.jpg',
-      alt: 'parc mayumba',
-      animationDuration: '16.7s',
-    },
-    {
       src: '/assets/pics/g-section/monts-de-crystal.jpg',
       alt: 'parc minkébé',
       animationDuration: '13s',
-    },
-    {
-      src: '/assets/pics/g-section/parc-pongara.jpg',
-      alt: 'parc pongara',
-      animationDuration: '19.5s',
     },
     {
       src: '/assets/pics/g-section/plateaux-bateke.jpg',
