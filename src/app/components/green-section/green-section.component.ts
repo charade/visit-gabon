@@ -134,19 +134,4 @@ export class GreenSectionComponent
         ease: 'sine.in',
       });
   }
-
-  onSelectGreenSectionSecondContentBg(
-    img: HTMLImageElement,
-    newSrc: string
-  ): void {
-    gsap.timeline().fromTo(
-      img,
-      {
-        scaleY: 2.5,
-        ease: 'expo.out',
-        opacity: 0.4,
-      },
-      { opacity: 1, scale: 1, attr: { src: `${newSrc}` }, ease: 'expo.out' }
-    );
-  }
 }

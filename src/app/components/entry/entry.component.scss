@@ -36,7 +36,7 @@
           height: 100%;
           width: 100%;
 
-          .blue-screen-description {
+          h2.blue-screen-description {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -44,12 +44,26 @@
             width: 100%;
             text-align: center;
             font-family: "KhandLight";
-            font-size: 2rem;
+            font-size: 3rem;
             color: #000000ad;
 
+            &.s-device {
+              font-size: 4rem;
+            }
+
+            &.l-device {
+              font-size: 5rem;
+            }
             &.last-entry-description {
-              font-family: "KhandSemiBold";
-              font-size: 2.5rem;
+              color: #fff;
+
+              &.s-device {
+                font-size: 5rem;
+              }
+
+              &.l-device {
+                font-size: 6rem;
+              }
             }
           }
         }

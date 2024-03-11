@@ -1,13 +1,13 @@
 import {
   AfterViewInit,
   Component,
-  Input,
   ViewContainerRef,
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import SplitType from 'split-type';
+import { MediaBreakPointsObserver } from 'src/app/utils/breakpoint-observer';
 
 @Component({
   selector: 'app-entry',
@@ -16,18 +16,21 @@ import SplitType from 'split-type';
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.scss'],
 })
-export class EntryComponent implements AfterViewInit {
+export class EntryComponent
+  extends MediaBreakPointsObserver
+  implements AfterViewInit
+{
   #viewContainerRef = inject(ViewContainerRef).element.nativeElement;
+  #entryAnimationTimeline = gsap.timeline();
+  #animationEnd = 'animationEnd';
 
   ngAfterViewInit(): void {
-    const entryTimelineAnimation = gsap
-      .timeline()
-      .from('.entry-screen.animated', {
-        width: 0,
-        stagger: 0.8,
-        duration: 1,
-        delay: 0.5,
-      });
+    this.#entryAnimationTimeline.from('.entry-screen.animated', {
+      width: 0,
+      stagger: 0.8,
+      duration: 0.5,
+      delay: 0.4,
+    });
 
     this.#animateEntryDescription();
   }
@@ -37,37 +40,58 @@ export class EntryComponent implements AfterViewInit {
       '.blue-screen-description'
     );
 
-    const tl = gsap.timeline();
-
     descriptionContents.forEach((description, index) => {
       const splittedText = new SplitType(description as HTMLElement, {
         types: 'chars',
       });
 
-      tl.from(description, { opacity: 0 }).from(splittedText.chars, {
-        opacity: 0,
-        x: -8,
-        stagger: 0.1,
-      });
+      this.#entryAnimationTimeline.from(
+        splittedText.chars,
+        {
+          opacity: 0,
+          x: -5,
+          stagger: 0.05,
+        },
+        '+=0.3'
+      );
 
-      if (index < 7) {
-        tl.to(
-          splittedText.chars,
-          {
-            opacity: 0,
-            y: -10,
-            stagger: -0.05,
-            onComplete: () => description.remove(),
-          },
-          '+=0.8'
-        );
+      if (index < descriptionContents.length - 1) {
+        this.#entryAnimationTimeline.to(splittedText.chars, {
+          opacity: 0,
+          y: -10,
+          stagger: -0.01,
+          onComplete: () => description.remove(),
+        });
+      } else {
+        this.#entryAnimationTimeline
+          .to(
+            description,
+            {
+              scale: 330,
+              duration: 2,
+              ease: 'power1.in',
+            },
+            this.#animationEnd
+          )
+          .to(
+            '.entry-blue-screen',
+            { backgroundColor: '#fff' },
+            `${this.#animationEnd} -=1.5`
+          );
       }
     });
 
-    tl.to(this.#viewContainerRef, {
-      height: 0,
-      duration: 0.5,
-      delay: 1,
-    }).to(this.#viewContainerRef, { opacity: 0 }, '-=0.6');
+    this.#entryAnimationTimeline
+      .to(
+        this.#viewContainerRef,
+        {
+          opacity: 0,
+        },
+        `${this.#animationEnd} -=1.3`
+      )
+      .to(this.#viewContainerRef, {
+        height: 0,
+        border: '1px solid red',
+      });
   }
 }
