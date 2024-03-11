@@ -46,11 +46,6 @@ export class GreenSectionComponent
       animationDuration: '14.5s',
     },
     {
-      src: '/assets/pics/g-section/parc-des-plateaux-bateke.jpg',
-      alt: 'plateaux bateke',
-      animationDuration: '18.1s',
-    },
-    {
       src: '/assets/pics/g-section/monts-de-crystal.jpg',
       alt: 'parc minkébé',
       animationDuration: '13s',
