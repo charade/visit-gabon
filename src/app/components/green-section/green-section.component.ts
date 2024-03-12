@@ -22,37 +22,50 @@ export class GreenSectionComponent
     src: string;
     alt: string;
     animationDuration: string;
+    story: string;
     scaleX?: number;
   }[] = [
     {
       src: '/assets/pics/g-section/nyonie.jpg',
       alt: 'parc nyonie',
       animationDuration: '17.5s',
+      story:
+        "La Nyonié Cotoye l'Atlantique. Aux environs on y voit des buffles, des éléphants, des potamochères et de nombreux oiseaux.",
     },
     {
       src: '/assets/pics/g-section/elephants.jpg',
-      alt: 'chutes de kongou',
+      alt: 'éléphants',
       animationDuration: '8.8s',
+      story:
+        'Dernier grand sanctuaire des éléphants de forêt, plus petit que leurs cousins de la savane. Chez nous se trouve 60% de leur population.',
     },
     {
       src: '/assets/pics/g-section/parc-lope.jpg',
       alt: 'parc lopé',
       animationDuration: '7.9s',
+      story:
+        "Inscrit au Patrimoine mondial de l'UNESCO. Le parc de la lopé  est une combinaison de forêts et savanes surlignées de cours d'eau,  et d'une richèsse biologique unique.",
     },
     {
       src: '/assets/pics/g-section/perroquets.jpg',
       alt: 'parc de loango',
       animationDuration: '14.5s',
+      story:
+        "Notre perroquet Gris, est le plus beau parleur de tous. Son intelligence lui permet de restituer, dans le bon contexte, les mots qu'il prononce.",
     },
     {
       src: '/assets/pics/g-section/monts-de-crystal.jpg',
       alt: 'parc minkébé',
       animationDuration: '13s',
+      story:
+        'Constitués de forêts pluviales, les Monts de cristal présentent une biodiversité exceptionnelle, avec des reliefs allant de 200 à plus de 900 mètres.',
     },
     {
       src: '/assets/pics/g-section/plateaux-bateke.jpg',
       alt: 'plateaux bateke',
       animationDuration: '10.5s',
+      story:
+        'Combinaison de savanes et de forêts, entrecoupées par plusieurs vallées de rivières bleu turquoise, les Plateaux Batéké sont une mosaïque unique.',
     },
   ];
 

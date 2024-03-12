@@ -282,16 +282,14 @@
     </h2>
     <div class="green-section-second-content-description">
       <p
+        #story
         [ngClass]="{
           'xs-device': isDeviceXS(),
           's-device': isDeviceS(),
           web: isDeviceWeb()
         }"
       >
-        Découvrez la beauté des chutes de Kongou, de Djidji et d’Iboundji, les
-        paysages spectaculaires de la Lopé, de Wonga Wongué et des Plateaux
-        Batéké. Les sommets des Monts de Cristal et du Massif du Chaillu...<br />
-        Découvrez le tout simplement sublime
+        {{ greenPics[5].story }}
       </p>
     </div>
 
@@ -325,7 +323,8 @@
             class="green-section-second-content-parcs-explore"
             (click)="
               !greenSectionSecondContentBg.src.includes(pic.src) &&
-                (greenSectionSecondContentBg.src = pic.src)
+                (greenSectionSecondContentBg.src = pic.src) &&
+                (story.textContent = pic.story)
             "
           >
             <img
