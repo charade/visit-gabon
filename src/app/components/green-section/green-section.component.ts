@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import { MediaBreakPointsObserver } from '../../utils/breakpoint-observer';
@@ -8,7 +8,7 @@ import { UserAgent } from '../../utils/user-agent';
 @Component({
   selector: 'green-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './green-section.component.html',
   styleUrls: ['./green-section.component.scss'],
 })
@@ -24,6 +24,7 @@ export class GreenSectionComponent
     animationDuration: string;
     story: string;
     scaleX?: number;
+    priority?: boolean;
   }[] = [
     {
       src: '/assets/pics/g-section/nyonie.jpg',
@@ -44,14 +45,14 @@ export class GreenSectionComponent
       alt: 'parc lopé',
       animationDuration: '7.9s',
       story:
-        "Inscrit au Patrimoine mondial de l'UNESCO. Le parc de la lopé  est une combinaison de forêts et savanes surlignées de cours d'eau,  et d'une richèsse biologique unique.",
+        "Inscrit au Patrimoine mondial de l'UNESCO. Le parc de la lopé  est une combinaison de forêts, de savanes,  surlignées de cours d'eau,  et d'une richèsse biologique unique.",
     },
     {
       src: '/assets/pics/g-section/perroquets.jpg',
       alt: 'parc de loango',
       animationDuration: '14.5s',
       story:
-        "Notre perroquet Gris, est le plus beau parleur de tous. Son intelligence lui permet de restituer, dans le bon contexte, les mots qu'il prononce.",
+        "Notre Perroquet Gris, est le plusloquace d'entre tous. Capable d'apprendre jusqu'à un millier de mots, son intelligence lui permet de les restituer dans le bon contexte.",
     },
     {
       src: '/assets/pics/g-section/monts-de-crystal.jpg',
@@ -66,6 +67,7 @@ export class GreenSectionComponent
       animationDuration: '10.5s',
       story:
         'Combinaison de savanes et de forêts, entrecoupées par plusieurs vallées de rivières bleu turquoise, les Plateaux Batéké sont une mosaïque unique.',
+      priority: true,
     },
   ];
 
@@ -141,7 +143,7 @@ export class GreenSectionComponent
       .from('.green-section-second-content-bg', {
         scale: 0.5,
       })
-      .from('.green-section-second-content-explore', {
+      .from('.green-section-second-content-explore-content', {
         y: 30,
         opacity: 0,
         ease: 'sine.in',

@@ -4,137 +4,141 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 400vh;
+    height: 100vh;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
 
     h2.yellow-section-catch-phrase-container {
       position: absolute;
-      top: 0.5rem;
-      left: 1rem;
+      top: 0;
+      left: 2rem;
       z-index: 6;
-      height: 30rem;
       min-width: 100%;
       width: 100%;
-      font-size: 5rem;
+      font-size: 3rem;
       font-family: "EasyNovember";
-      line-height: 5.75rem;
-      text-shadow: 0 0 2px rgba(211, 179, 74, 0.987), 0 0 10px #fff;
       color: #000000db;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      word-spacing: 0.75rem;
-      text-wrap: pretty;
+      word-spacing: 0.5rem;
 
       &.xs-device {
-        font-size: 4.5rem;
-        left: 1rem;
+        font-size: 4rem;
       }
 
-      &.sm-device {
-        font-size: 5rem;
-        line-height: 6rem;
-      }
-
-      &.m-device {
-        font-size: 7rem;
-        line-height: 9.5rem;
-        top: 3rem;
-      }
       &.xl-device {
-        font-size: 12rem;
-        line-height: 14rem;
-        top: 10rem;
+        font-size: 5rem;
       }
 
       &.web {
         font-size: 5rem;
-        line-height: 6rem;
-        top: 3rem;
+        top: 0.5rem;
         left: 60%;
-        text-shadow: none;
       }
     }
 
-    .yellow-section-bg-clipper-container {
-      position: absolute;
+    svg {
       top: 0;
       left: 0;
-      z-index: 5;
-      height: 102vh;
-      min-height: 102vh;
-      min-width: 100%;
-      width: 100%;
-      padding: 0;
-      margin: 0;
+      width: 0;
+      height: 0;
+      z-index: 1;
+    }
 
-      svg.yellow-section-bg-clipper {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      color: #fff;
+      z-index: 8;
+      cursor: pointer;
 
-        rect {
-          fill: #fff;
-          width: 100%;
-          height: 100%;
-          min-width: 100vw;
-          min-height: 100vh;
+      &.--left {
+        left: 0.5rem;
 
-          &#mask-rect {
-            mask: url(#yellow-section-mask);
-            -webkit-mask: url(#yellow-section-mask);
-          }
+        &.m-device {
+          left: 1rem;
         }
 
-        path {
-          transform: scale(0.07) translate(30%, 200%);
+        &.web {
+          left: 19.5%;
+        }
+      }
+
+      &.--right {
+        right: 0.5rem;
+
+        &.m-device {
+          right: 1rem;
         }
 
-        &.xs-device path {
-          transform: scale(0.08, 0.11) translate(10%, 10%);
+        &.web {
+          right: 19.1%;
         }
+      }
 
-        &.s-device path {
-          transform: scale(0.07, 0.11) translate(18%, 50%);
-        }
+      &.disabled {
+        color: #555555a4;
+        cursor: not-allowed;
+      }
 
-        &.m-device path {
-          transform: scale(0.09, 0.1) translate(-85%, 80%);
-        }
+      &.xs-device {
+        font-size: 3rem;
+      }
 
-        &.l-device path {
-          transform: scale(0.1) translate(-75%, 60%);
-        }
-        &.xl-device path {
-          transform: scale(0.12) translate(-95%, -18%);
-        }
-        &.web path {
-          transform: scale(0.065, 0.05) translate(-28%, 545%);
-        }
+      &.s-device {
+        font-size: 4rem;
+      }
+
+      &.m-device {
+        font-size: 5rem;
+      }
+
+      &.l-device {
+        font-size: 6rem;
+      }
+
+      &.xl-device {
+        font-size: 8rem;
+      }
+      &.web {
+        font-size: 5rem;
       }
     }
 
-    .yellow-section-background-pic {
-      height: 100vh;
-      width: 100vw;
+    .yellow-section-pics-container {
+      position: relative;
+      width: 95%;
+      height: 70vh;
+      border-radius: 5px;
       overflow: hidden;
-      z-index: 1;
+      &.web {
+        width: 60%;
+      }
 
-      &.sunset-pic--1 {
-        z-index: 2;
-      }
-      &.sunset-pic--2 {
-        z-index: 3;
-      }
-      &.sunset-pic--3 {
-        z-index: 4;
-      }
-      &.sunset-pic--4 {
-        z-index: 5;
-      }
-      img {
+      .yellow-section-background-pic {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        object-fit: cover;
         height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &.sunset-pic--0 {
+          z-index: 5;
+        }
+        &.sunset-pic--1 {
+          z-index: 4;
+        }
+
+        &.sunset-pic--2 {
+          z-index: 3;
+        }
+
+        &.sunset-pic--3 {
+          z-index: 2;
+        }
       }
     }
   }

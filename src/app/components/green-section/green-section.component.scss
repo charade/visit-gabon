@@ -484,7 +484,7 @@
 
       h2.green-section-second-content-catch-phrase {
         position: absolute;
-        top: 0.25rem;
+        top: 0;
         left: 2rem;
         font-size: 3rem;
         font-family: "EasyNovember";
@@ -558,95 +558,63 @@
           border-radius: 1rem;
         }
 
-        .green-section-second-content-explore {
+        .green-section-second-content-explore-content {
           position: absolute;
           left: 50%;
           bottom: 0;
-          width: 100%;
-          height: 23rem;
-          overflow: hidden;
-          background-color: #000000a2;
-          transform: translateX(-50%);
-          user-select: none;
+          height: 19.5rem;
           display: flex;
           align-items: center;
+          width: 100%;
+          min-width: 100%;
+          overflow-x: scroll;
+          overflow-y: hidden;
+          background-color: #00000058;
+          transform: translateX(-50%);
+          user-select: none;
+          padding-bottom: 0.5rem;
 
-          &.xs-device {
-            margin-top: 10rem;
-          }
-
-          &.s-device {
-            margin-top: 18rem;
-          }
-
-          &.sm-device {
-            margin-top: 8rem;
-          }
-
-          &.m-device {
-            margin-top: 30rem;
-          }
-
-          &.l-device {
-            margin-top: 40rem;
-          }
-
-          &.xl-device {
-            margin-top: 5rem;
-          }
-
-          .green-section-second-content-explore-content {
+          .green-section-second-content-parcs-img {
+            position: relative;
+            width: 18rem;
+            height: 18rem;
+            cursor: pointer;
+            margin: 0 1rem;
+            border-radius: 50%;
             display: flex;
+            justify-content: center;
             align-items: center;
-            height: 100%;
-            width: 100%;
-            overflow-x: scroll;
+            padding: 0.5rem;
 
-            .green-section-second-content-parcs-explore {
-              position: relative;
-              min-width: 20rem;
-              min-height: 20rem;
-              cursor: pointer;
-              margin: 0 1rem;
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-43%, -48%);
+              width: 17rem;
+              height: 17rem;
               border-radius: 50%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
+              border: 1px solid #fff;
+            }
 
-              &::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 19rem;
-                height: 19rem;
-                border-radius: 50%;
-                border: none;
-                border-top: 1px solid #b8b4b4a9;
-                border-right: 1px solid #ffffff3e;
-                border-bottom: 1px solid #e7e5e5b8;
-              }
+            img {
+              object-fit: cover;
+              width: 18.5rem;
+              height: 18.5rem;
+              border-radius: 50%;
+            }
 
-              img {
-                object-fit: cover;
-                width: 20rem;
-                height: 20rem;
-                border-radius: 50%;
-              }
+            svg {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              // transform: translate(-35%, -50%);
+              width: 100%;
+              height: 100%;
 
-              svg {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                height: 100%;
-
-                path {
-                  animation: greenParcsAnimation linear infinite
-                    alternate-reverse;
-                }
+              path {
+                animation: greenParcsAnimation linear infinite alternate-reverse;
               }
             }
           }

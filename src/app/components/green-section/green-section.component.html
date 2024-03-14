@@ -300,50 +300,44 @@
       <img
         #greenSectionSecondContentBg
         class="green-section-second-content-bg"
-        [src]="greenPics[5].src"
+        [ngSrc]="greenPics[5].src"
         alt="plateaux_bateke"
+        width="50"
+        height="50"
       />
+
       <div
-        class="green-section-second-content-explore"
-        [ngClass]="{
-          'xs-device': isDeviceXS(),
-          's-device': isDeviceS(),
-          'sm-device': isDeviceSm(),
-          'm-device': isDeviceM(),
-          'l-device': isDeviceL(),
-          'xl-device': isDeviceXL()
-        }"
+        class="green-section-second-content-explore-content"
+        [ngClass]="{ 'xl-device': isDeviceXL() }"
       >
         <div
-          class="green-section-second-content-explore-content"
-          [ngClass]="{ 'xl-device': isDeviceXL() }"
+          *ngFor="let pic of greenPics; let index = index"
+          class="green-section-second-content-parcs-img"
+          (click)="
+            !greenSectionSecondContentBg.src.includes(pic.src) &&
+              (greenSectionSecondContentBg.src = pic.src) &&
+              (story.textContent = pic.story)
+          "
         >
-          <div
-            *ngFor="let pic of greenPics; let index = index"
-            class="green-section-second-content-parcs-explore"
-            (click)="
-              !greenSectionSecondContentBg.src.includes(pic.src) &&
-                (greenSectionSecondContentBg.src = pic.src) &&
-                (story.textContent = pic.story)
-            "
-          >
-            <img
-              [src]="pic.src"
-              [alt]="pic.alt"
-              [style]="{ clipPath: 'url(#parc--' + index + ')' }"
-            />
+          <img
+            [ngSrc]="pic.src"
+            [alt]="pic.alt"
+            [style]="{ clipPath: 'url(#parc--' + index + ')' }"
+            [width]="20"
+            [height]="20"
+            [priority]="pic.priority"
+          />
 
-            <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
-              <clipPath [id]="'parc--' + index">
-                <path
-                  [style]="{ animationDuration: pic.animationDuration }"
-                  fill="#FF0066"
-                  d="M416.5,342Q358,444,241.5,442Q125,440,64.5,340Q4,240,66,143.5Q128,47,240.5,46Q353,45,414,142.5Q475,240,416.5,342Z"
-                  transform="translate(100 100)"
-                />
-              </clipPath>
-            </svg>
-          </div>
+          <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+            <clipPath [id]="'parc--' + index">
+              <path
+                [style]="{ animationDuration: pic.animationDuration }"
+                fill="#FF0066"
+                d="M416.5,342Q358,444,241.5,442Q125,440,64.5,340Q4,240,66,143.5Q128,47,240.5,46Q353,45,414,142.5Q475,240,416.5,342Z"
+                transform="translate(100 100)"
+              />
+            </clipPath>
+          </svg>
         </div>
       </div>
     </div>
