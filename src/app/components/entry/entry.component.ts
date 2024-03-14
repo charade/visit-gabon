@@ -67,9 +67,9 @@ export class EntryComponent
           .to(
             description,
             {
-              scale: 330,
+              scale: 300,
               duration: 2,
-              ease: 'power1.in',
+              ease: 'sine.in',
             },
             this.#animationEnd
           )
@@ -91,7 +91,9 @@ export class EntryComponent
       )
       .to(this.#viewContainerRef, {
         height: 0,
-        border: '1px solid red',
+      })
+      .to(this.#viewContainerRef, {
+        display: 'none',
       });
   }
 }

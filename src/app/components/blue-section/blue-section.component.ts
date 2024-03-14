@@ -19,7 +19,11 @@ export class BlueSectionComponent
   extends MediaBreakPointsObserver
   implements AfterViewInit
 {
-  readonly blueSectionPic = [
+  readonly blueSectionPic: {
+    src: string;
+    alt: string;
+    animationDirection: PicAnimationDirection;
+  }[] = [
     {
       src: '/assets/pics/b-section/baie_du_cap.jpg',
       alt: 'bai du cap Estuaire',
@@ -66,6 +70,7 @@ export class BlueSectionComponent
         height:
           this.blueSectionPic[index].animationDirection ===
             PicAnimationDirection.Height && 0,
+
         scrollTrigger: {
           trigger: pic,
           start: 'top 97%',

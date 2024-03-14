@@ -1,5 +1,12 @@
 <div class="app-container">
-  <div class="audio-container">
+  <div
+    class="audio-container"
+    [ngClass]="{
+      's-device': isDeviceS(),
+      'm-device': isDeviceM(),
+      web: isDeviceWeb()
+    }"
+  >
     <audio
       #audio
       src="/assets/audio/Annie-Flore Batchiellilys_JE TINVITE.mp3"
@@ -7,11 +14,21 @@
     ></audio>
     <icon
       *ngIf="audio.paused"
+      [ngClass]="{
+        's-device': isDeviceS(),
+        'm-device': isDeviceM(),
+        web: isDeviceWeb()
+      }"
       [iconName]="IconEnum.play"
       (click)="audio.play()"
     />
     <icon
       *ngIf="!audio.paused"
+      [ngClass]="{
+        's-device': isDeviceS(),
+        'm-device': isDeviceM(),
+        web: isDeviceWeb()
+      }"
       [iconName]="IconEnum.pause"
       (click)="audio.pause()"
     />

@@ -54,6 +54,10 @@
         border-radius: 3px;
         overflow: hidden;
 
+        .blue-section-pic {
+          filter: none;
+        }
+
         &.blue-pic-container--0 {
           width: 13rem;
           height: 13rem;

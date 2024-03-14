@@ -276,7 +276,11 @@
   <div class="green-section-second-content-container">
     <h2
       class="green-section-second-content-catch-phrase"
-      [ngClass]="{ 'xs-device': isDeviceXS(), 'xl-device': isDeviceXL() }"
+      [ngClass]="{
+        'xs-device': isDeviceXS(),
+        'xl-device': isDeviceXL(),
+        web: isDeviceWeb()
+      }"
     >
       Naturellement unique
     </h2>

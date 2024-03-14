@@ -25,23 +25,39 @@
         font-size: 4rem;
       }
 
+      &.sm-device {
+        left: 40%;
+      }
+
+      &.m-device {
+        left: 56%;
+      }
+
+      &.l-device {
+        left: 60%;
+      }
+
       &.xl-device {
         font-size: 5rem;
+        left: 62%;
       }
 
       &.web {
-        font-size: 5rem;
-        top: 0.5rem;
-        left: 60%;
+        font-size: 4rem;
+        top: 0;
+        left: 58%;
       }
-    }
 
-    svg {
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        width: 10rem;
+        height: 5px;
+        border-radius: 10px;
+        background-color: goldenrod;
+      }
     }
 
     .arrow {
@@ -54,26 +70,34 @@
       cursor: pointer;
 
       &.--left {
-        left: 0.5rem;
+        left: 1.5rem;
+
+        &.sm-device {
+          left: 2rem;
+        }
 
         &.m-device {
-          left: 1rem;
+          left: 3.5rem;
         }
 
         &.web {
-          left: 19.5%;
+          left: 21%;
         }
       }
 
       &.--right {
-        right: 0.5rem;
+        right: 1.5rem;
+
+        &.sm-device {
+          right: 2rem;
+        }
 
         &.m-device {
-          right: 1rem;
+          right: 3.5rem;
         }
 
         &.web {
-          right: 19.1%;
+          right: 21%;
         }
       }
 
@@ -110,8 +134,7 @@
       position: relative;
       width: 95%;
       height: 70vh;
-      border-radius: 5px;
-      overflow: hidden;
+
       &.web {
         width: 60%;
       }
@@ -124,6 +147,7 @@
         height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
+        border-radius: 8px;
 
         &.sunset-pic--0 {
           z-index: 5;

@@ -5,6 +5,7 @@
       'xs-device': isDeviceXS(),
       'sm-device': isDeviceSm(),
       'm-device': isDeviceM(),
+      'l-device': isDeviceL(),
       'xl-device': isDeviceXL(),
       web: isDeviceWeb()
     }"
@@ -12,20 +13,12 @@
     Nos couchers de soleil
   </h2>
 
-  <svg width="0" height="0">
-    <filter id="water-filter-effect">
-      <feTurbulence baseFrequency="0" numOctaves="1">
-        <animate attributeName="baseFrequency" dur="4s" values="0.02;0" />
-      </feTurbulence>
-      <feDisplacementMap scale="18" in="SourceGraphic" />
-    </filter>
-  </svg>
-
   <icon
     class="arrow --left"
     [ngClass]="{
       'xs-device': isDeviceXS(),
       's-device': isDeviceS(),
+      'sm-device': isDeviceSm(),
       'm-device': isDeviceM(),
       'l-device': isDeviceL(),
       'xl-device': isDeviceXL(),
@@ -51,6 +44,7 @@
     [ngClass]="{
       'xs-device': isDeviceXS(),
       's-device': isDeviceS(),
+      'sm-device': isDeviceSm(),
       'm-device': isDeviceM(),
       'l-device': isDeviceL(),
       'xl-device': isDeviceXL(),

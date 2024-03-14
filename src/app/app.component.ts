@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import gsap from 'gsap';
@@ -11,6 +11,7 @@ import { BlueSectionComponent } from './components/blue-section/blue-section.com
 import { IconEnum } from './utils/icons-enum';
 import { IconComponent } from './icon/icon.component';
 import { OutroSectionComponent } from './components/outro-section/outro-section.component';
+import { MediaBreakPointsObserver } from './utils/breakpoint-observer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,10 +31,7 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends MediaBreakPointsObserver {
   title = 'visit-gabon';
   IconEnum = IconEnum;
-  ngOnInit(): void {
-    window.addEventListener('scroll', ScrollTrigger.update);
-  }
 }
