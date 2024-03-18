@@ -66,7 +66,7 @@ export class GreenSectionComponent
       alt: 'plateaux bateke',
       animationDuration: '10.5s',
       story:
-        'Combinaison de savanes et de forêts, entrecoupées par plusieurs vallées de rivières bleu turquoise, les Plateaux Batéké sont une mosaïque unique.',
+        'Combinaison de savanes et de forêts, entrecoupées par plusieurs vallées de rivières bleu turquoise, les Plateaux Batéké constituent une mosaïque unique.',
       priority: true,
     },
   ];
