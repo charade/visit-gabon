@@ -52,7 +52,7 @@ export class GreenSectionComponent
       alt: 'parc de loango',
       animationDuration: '14.5s',
       story:
-        "Notre Perroquet Gris, est le plusloquace d'entre tous. Capable d'apprendre jusqu'à un millier de mots, son intelligence lui permet de les restituer dans le bon contexte.",
+        "Notre Perroquet Gris, est le plus loquace d'entre tous. Capable d'apprendre jusqu'à un millier de mots, son intelligence lui permet de les restituer dans le bon contexte.",
     },
     {
       src: '/assets/pics/g-section/monts-de-crystal.jpg',
